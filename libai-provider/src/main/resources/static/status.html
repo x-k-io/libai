@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多美云平台 · 服务状态</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, "Microsoft YaHei", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+        .card {
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        .row:last-child {
+            border-bottom: none;
+        }
+        .label {
+            color: #555;
+        }
+        .value {
+            color: #222;
+            font-weight: 500;
+        }
+        .status-up {
+            color: #00b42a;
+        }
+        .status-down {
+            color: #ff4d4f;
+        }
+        .btn {
+            border: 1px solid #222;
+            color: #222;
+            text-decoration: none;
+            padding: 12px 36px;
+            border-radius: 2px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        .btn:hover {
+            background: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="title">多美云平台 · 服务状态</div>
+
+<div class="card">
+    <div class="row">
+        <div class="label">服务状态</div>
+        <div class="value" id="status">检测中...</div>
+    </div>
+    <div class="row">
+        <div class="label">运行时长</div>
+        <div class="value" id="uptime">--</div>
+    </div>
+    <div class="row">
+        <div class="label">JVM 版本</div>
+        <div class="value" id="jvmVersion">--</div>
+    </div>
+    <div class="row">
+        <div class="label">内存使用</div>
+        <div class="value" id="memory">--</div>
+    </div>
+    <div class="row">
+        <div class="label">磁盘剩余</div>
+        <div class="value" id="disk">--</div>
+    </div>
+    <div class="row">
+        <div class="label">数据库状态</div>
+        <div class="value" id="dbStatus">--</div>
+    </div>
+    <div class="row">
+        <div class="label">Redis 状态</div>
+        <div class="value" id="redisStatus">--</div>
+    </div>
+</div>
+
+<a href="/" class="btn">返回多美云平台首页</a>
+
+<script>
+    async function fetchStatus() {
+        try {
+            // 1. 健康检查
+            const healthRes = await fetch('/actuator/health');
+            const healthData = await healthRes.json();
+
+            const statusEl = document.getElementById('status');
+            if (healthData.status === 'UP') {
+                statusEl.textContent = '运行正常';
+                statusEl.className = 'value status-up';
+            } else {
+                statusEl.textContent = '异常';
+                statusEl.className = 'value status-down';
+            }
+
+            // 解析组件状态
+            if (healthData.components?.db) {
+                const dbEl = document.getElementById('dbStatus');
+                dbEl.textContent = healthData.components.db.status === 'UP' ? '正常' : '异常';
+                dbEl.className = `value ${healthData.components.db.status === 'UP' ? 'status-up' : 'status-down'}`;
+            }
+            if (healthData.components?.redis) {
+                const redisEl = document.getElementById('redisStatus');
+                redisEl.textContent = healthData.components.redis.status === 'UP' ? '正常' : '异常';
+                redisEl.className = `value ${healthData.components.redis.status === 'UP' ? 'status-up' : 'status-down'}`;
+            }
+            if (healthData.components?.diskSpace) {
+                const freeBytes = healthData.components.diskSpace.details.free;
+                const freeGB = (freeBytes / 1024 / 1024 / 1024).toFixed(2);
+                document.getElementById('disk').textContent = `${freeGB} GB`;
+            }
+
+            // 2. 应用信息
+            const infoRes = await fetch('/actuator/info');
+            if (infoRes.ok) {
+                const infoData = await infoRes.json();
+                document.getElementById('jvmVersion').textContent = infoData.java?.version || '--';
+            }
+
+            // 3. 内存使用
+            const memoryRes = await fetch('/actuator/metrics/jvm.memory.used');
+            if (memoryRes.ok) {
+                const memoryData = await memoryRes.json();
+                const usedBytes = memoryData.measurements[0]?.value || 0;
+                const usedMB = (usedBytes / 1024 / 1024).toFixed(2);
+                document.getElementById('memory').textContent = `${usedMB} MB`;
+            }
+
+            // 4. 运行时长
+            const uptimeRes = await fetch('/actuator/metrics/process.uptime');
+            if (uptimeRes.ok) {
+                const uptimeData = await uptimeRes.json();
+                const uptimeSeconds = uptimeData.measurements[0]?.value || 0;
+                const hours = (uptimeSeconds / 3600).toFixed(1);
+                document.getElementById('uptime').textContent = `${hours} 小时`;
+            }
+
+        } catch (err) {
+            console.error('获取状态失败:', err);
+            document.getElementById('status').textContent = '无法获取';
+            document.getElementById('status').className = 'value status-down';
+        }
+    }
+
+    fetchStatus();
+    // 每 30 秒刷新一次
+    setInterval(fetchStatus, 30000);
+</script>
+</body>
+</html>

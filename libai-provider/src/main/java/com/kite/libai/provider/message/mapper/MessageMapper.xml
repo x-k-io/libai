@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kite.libai.provider.message.mapper.MessageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kite.libai.provider.message.model.entity.Message">
+        <id column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="chat_id" property="chatId"/>
+        <result column="account_id" property="accountId"/>
+        <result column="content" property="content"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id
+        , type, chat_id, account_id, content, created_at
+    </sql>
+
+</mapper>

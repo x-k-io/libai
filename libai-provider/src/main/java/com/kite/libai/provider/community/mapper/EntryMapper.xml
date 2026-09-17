@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kite.libai.provider.community.mapper.EntryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kite.libai.provider.community.model.entity.Entry">
+        <id column="id" property="id"/>
+        <result column="author_id" property="authorId"/>
+        <result column="type" property="type"/>
+        <result column="author_type" property="authorType"/>
+        <result column="entity_type" property="entityType"/>
+        <result column="entity_id" property="entityId"/>
+        <result column="circle_id" property="circleId"/>
+        <result column="place_id" property="placeId"/>
+        <result column="channels" property="channels"/>
+        <result column="topics" property="topics"/>
+        <result column="labels" property="labels"/>
+        <result column="longitude" property="longitude"/>
+        <result column="latitude" property="latitude"/>
+        <result column="country" property="country"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="district" property="district"/>
+        <result column="place" property="place"/>
+        <result column="likes" property="likes"/>
+        <result column="replies" property="replies"/>
+        <result column="browses" property="browses"/>
+        <result column="favorites" property="favorites"/>
+        <result column="plays" property="plays"/>
+        <result column="composite_orders" property="compositeOrders"/>
+        <result column="hot_orders" property="hotOrders"/>
+        <result column="new_orders" property="newOrders"/>
+        <result column="status" property="status"/>
+        <result column="released_at" property="releasedAt"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id
+        , author_id, type, author_type, entity_type, entity_id, circle_id, place_id, channels, topics, labels, longitude, latitude, country, province, city, district, place, likes, replies, browses, favorites, plays, composite_orders, hot_orders, new_orders, status, released_at, created_at, updated_at
+    </sql>
+
+</mapper>

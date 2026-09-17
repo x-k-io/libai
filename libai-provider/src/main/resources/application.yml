@@ -1,0 +1,54 @@
+server:
+  port: 11010
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 100
+      min-idle: 10
+      max-active: 2000
+      max-wait: 60000
+      validation-query-timeout: 300
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      filters: wall,slf4j
+      stat-view-servlet:
+        url-pattern: /druid/*
+        reset-enable: false
+        login-password: druid
+        login-username: druid
+      web-stat-filter:
+        session-stat-enable: false
+        url-pattern: /*
+        exclusions: /static/*,*.ico,/druid/*
+  profiles:
+    include: logging
+    active: dev
+mybatis-plus:
+  global-config:
+    db-config:
+      insert-strategy: not_null  # 插入策略：非空才拼接SQL
+      update-strategy: not_null # 更新策略：非空才更新
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+  metrics:
+    export:
+      prometheus:
+        enabled: true

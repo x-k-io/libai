@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kite.libai.provider.community.mapper.ReplyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kite.libai.provider.community.model.entity.Reply">
+        <id column="id" property="id"/>
+        <result column="account_id" property="accountId"/>
+        <result column="entity_type" property="entityType"/>
+        <result column="entity_id" property="entityId"/>
+        <result column="entry_id" property="entryId"/>
+        <result column="comment_id" property="commentId"/>
+        <result column="to_account_id" property="toAccountId"/>
+        <result column="content" property="content"/>
+        <result column="likes" property="likes"/>
+        <result column="authored" property="authored"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id
+        , account_id, entity_type, entity_id, entry_id, comment_id, to_account_id, content, likes, authored, created_at
+    </sql>
+
+</mapper>

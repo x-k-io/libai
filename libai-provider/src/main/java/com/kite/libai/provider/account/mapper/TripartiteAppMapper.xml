@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kite.libai.provider.account.mapper.TripartiteAppMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kite.libai.provider.account.model.entity.TripartiteApp">
+        <id column="id" property="id"/>
+        <result column="app_code" property="appCode"/>
+        <result column="type" property="type"/>
+        <result column="name" property="name"/>
+        <result column="app_id" property="appId"/>
+        <result column="app_secret" property="appSecret"/>
+        <result column="mch_id" property="mchId"/>
+        <result column="mch_secret" property="mchSecret"/>
+        <result column="is_platform" property="isPlatform"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="updated_by" property="updatedBy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id
+        , app_code, type, name, app_id, app_secret, mch_id, mch_secret, is_platform, created_at, created_by, updated_at, updated_by
+    </sql>
+
+</mapper>

@@ -1,0 +1,40 @@
+dependencies {
+    api project(":libai-boot")
+    api project(":libai-core")
+
+    api "com.google.guava:guava"
+    api 'org.springframework.boot:spring-boot-starter-web'
+    // redis
+    api "org.apache.commons:commons-pool2"
+    api 'org.springframework.boot:spring-boot-starter-data-redis'
+    // 密码
+    api 'org.springframework.security:spring-security-crypto'
+    // pinyin
+    api 'io.github.biezhi:TinyPinyin:2.0.3.RELEASE'
+    // 本地缓存
+    api 'com.github.ben-manes.caffeine:caffeine:2.8.5'
+    // oss
+    api 'com.aliyun.oss:aliyun-sdk-oss:3.8.0'
+    // sms
+    api 'com.aliyun:dysmsapi20170525:2.0.1'
+    api 'com.aliyun:openapiutil:0.1.5'
+    // 腾讯云
+    api 'com.tencentcloudapi:tencentcloud-sdk-java:3.1.322'
+    // swagger
+    api "io.springfox:springfox-boot-starter"
+    // spring-boot-starter-validation
+    api "org.springframework.boot:spring-boot-starter-validation"
+    // easy poi
+    api 'cn.afterturn:easypoi-base:3.2.0'
+    api 'cn.afterturn:easypoi-web:3.2.0'
+    api 'cn.afterturn:easypoi-annotation:3.2.0'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310' // 请使用最新版本
+
+    api 'com.baomidou:mybatis-plus-boot-starter'
+    api 'com.alibaba:druid-spring-boot-starter'
+    api 'mysql:mysql-connector-java'
+    // jwt
+    api 'io.jsonwebtoken:jjwt-api:0.11.5'
+    api 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    api 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+}

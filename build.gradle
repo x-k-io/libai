@@ -1,0 +1,92 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.5.15'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+ext {
+    springBootVersion = "2.5.15"
+    lombokVersion = '1.18.22'
+    guavaVersion = '31.1-jre'
+    swaggerVersion = "3.0.0"
+}
+
+tasks.bootJar {
+    enabled = false
+}
+
+allprojects {
+    group = GROUPID
+    version = VERSION
+
+    compileJava {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    compileTestJava {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenLocal()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+        mavenCentral()
+    }
+    //不使用缓存，使用仓库中最新的包
+    configurations.configureEach {
+        resolutionStrategy.cacheDynamicVersionsFor 10, 'minutes'
+        resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
+    }
+}
+
+subprojects {
+    apply plugin: 'signing'
+    apply plugin: "java-library"
+    apply plugin: 'maven-publish'
+    apply plugin: "io.spring.dependency-management"
+
+    dependencies {
+        // lombok
+        implementation 'org.projectlombok:lombok:1.18.22'
+        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+        // test
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation "junit:junit"
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "com.iiifi:kite-dependencies:1.2.5-SNAPSHOT"
+        }
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
+        }
+        dependencies {
+            dependency "io.springfox:springfox-boot-starter:$swaggerVersion"
+            dependency "com.google.guava:guava:$guavaVersion"
+            dependency "org.apache.commons:commons-lang3:3.17.0"
+            dependency "org.apache.commons:commons-collections4:4.4"
+            dependency "com.baomidou:mybatis-plus-boot-starter:3.4.3"
+            dependency "mysql:mysql-connector-java:8.0.22"
+            dependency "com.alibaba:druid-spring-boot-starter:1.2.8"
+            dependency "com.squareup.okhttp3:okhttp:4.9.3"
+        }
+    }
+
+    sourceSets {
+        main {
+            resources.srcDirs = ['src/main/java', "src/main/resources"]
+        }
+    }
+
+    compileJava.dependsOn(processResources)
+}

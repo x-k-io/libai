@@ -1,0 +1,9 @@
+rootProject.name = 'libai'
+include 'libai-admin'
+include 'libai-boot'
+include 'libai-core'
+include 'libai-launcher'
+include 'libai-provider'
+include 'libai-security'
+include 'libai-webapp'
+

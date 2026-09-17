@@ -1,0 +1,17 @@
+dependencies {
+    api project(":libai-core")
+    api "com.google.guava:guava"
+    api 'org.springframework.boot:spring-boot-starter-web'
+    // redis
+    api "org.apache.commons:commons-pool2"
+    api 'org.springframework.boot:spring-boot-starter-data-redis'
+    // 密码
+    api 'org.springframework.security:spring-security-crypto'
+    // swagger
+    api "io.springfox:springfox-boot-starter"
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310' // 请使用最新版本
+    // mybatis
+    api 'com.baomidou:mybatis-plus-boot-starter'
+    api 'com.alibaba:druid-spring-boot-starter'
+    api 'mysql:mysql-connector-java'
+}

@@ -1,0 +1,18 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+  metrics:
+    tags:
+      application: ${kite.name}
+      env: ${kite.env}
+
+feign:
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
