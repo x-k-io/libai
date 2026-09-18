@@ -1,9 +1,4 @@
 build/
-.git
-.github
-.vscode
-.DS_Store
-Dockerfile
 .gradle/
 .idea/
 .vscode/
@@ -14,8 +9,9 @@ logs/
 .env
 *.properties.local
 *.yml.local
+Dockerfile
 .dockerignore
+.git
 .gitignore
-docs/
 README.md
-
+docs/
