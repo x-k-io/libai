@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: x-k-io/ci-template/.github/workflows/java-service-build-image-jdk17.yml@main
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit
+    with:
+      image_name: ${{ github.repository }}
