@@ -1,3 +1,11 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+tasks.bootJar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 dependencies {
     api project(":libai-admin")
     api project(":libai-webapp")

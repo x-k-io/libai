@@ -2,58 +2,57 @@ package com.kite.libai.provider.community.model.response;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "ReplyResponse", description = "回复")
+@Schema(name = "ReplyResponse", description = "回复")
 public class ReplyResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "回复者id")
+    @Schema(description = "回复者id")
     private Long accountId;
 
-    @ApiModelProperty(value = "实体类型")
+    @Schema(description = "实体类型")
     private String entityType;
 
-    @ApiModelProperty(value = "实体id")
+    @Schema(description = "实体id")
     private Long entityId;
 
-    @ApiModelProperty(value = "作品id")
+    @Schema(description = "作品id")
     private Long entryId;
 
-    @ApiModelProperty(value = "评论id")
+    @Schema(description = "评论id")
     private Long commentId;
 
-    @ApiModelProperty(value = "被回复者id")
+    @Schema(description = "被回复者id")
     private Long toAccountId;
 
-    @ApiModelProperty(value = "内容")
+    @Schema(description = "内容")
     private String content;
 
-    @ApiModelProperty(value = "点赞数")
+    @Schema(description = "点赞数")
     private Integer likes;
 
-    @ApiModelProperty(value = "是否作者")
+    @Schema(description = "是否作者")
     private Boolean authored;
 
-    @ApiModelProperty(value = "回复者昵称")
+    @Schema(description = "回复者昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "回复者头像")
+    @Schema(description = "回复者头像")
     private String avatar;
 
-    @ApiModelProperty(value = "被回复者昵称")
+    @Schema(description = "被回复者昵称")
     private String toNickname;
 
-    @ApiModelProperty(value = "是否点赞")
+    @Schema(description = "是否点赞")
     private Boolean liked;
 
-    @ApiModelProperty(value = "时间描述")
+    @Schema(description = "时间描述")
     private String timeDescription;
 
 }

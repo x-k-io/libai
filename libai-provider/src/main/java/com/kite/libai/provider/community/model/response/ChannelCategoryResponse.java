@@ -2,20 +2,19 @@ package com.kite.libai.provider.community.model.response;
 
 import java.util.List;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "ChannelCategoryResponse", description = "频道分类")
+@Schema(name = "ChannelCategoryResponse", description = "频道分类")
 public class ChannelCategoryResponse {
 
-    @ApiModelProperty(value = "分类")
+    @Schema(description = "分类")
     private String category;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "频道")
+    @Schema(description = "频道")
     private List<ChannelResponse> channels;
 }

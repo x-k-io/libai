@@ -2,66 +2,65 @@ package com.kite.libai.provider.community.model.response;
 
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "PlaceResponse", description = "位置")
+@Schema(name = "PlaceResponse", description = "位置")
 public class PlaceResponse {
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private String type;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "副标题")
+    @Schema(description = "副标题")
     private String subtitle;
 
-    @ApiModelProperty(value = "封面")
+    @Schema(description = "封面")
     private String cover;
 
-    @ApiModelProperty(value = "标签")
+    @Schema(description = "标签")
     private String labels;
 
-    @ApiModelProperty(value = "电话")
+    @Schema(description = "电话")
     private String telephone;
 
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     private String description;
 
-    @ApiModelProperty(value = "经度")
+    @Schema(description = "经度")
     private String longitude;
 
-    @ApiModelProperty(value = "纬度")
+    @Schema(description = "纬度")
     private String latitude;
 
-    @ApiModelProperty(value = "国家")
+    @Schema(description = "国家")
     private String country;
 
-    @ApiModelProperty(value = "省")
+    @Schema(description = "省")
     private String province;
 
-    @ApiModelProperty(value = "市")
+    @Schema(description = "市")
     private String city;
 
-    @ApiModelProperty(value = "区")
+    @Schema(description = "区")
     private String district;
 
-    @ApiModelProperty(value = "详细地址")
+    @Schema(description = "详细地址")
     private String address;
 
-    @ApiModelProperty(value = "状态")
+    @Schema(description = "状态")
     private String status;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description = "创建时间")
     private LocalDateTime createdAt;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description = "更新时间")
     private LocalDateTime updatedAt;
 
 }

@@ -1,14 +1,25 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.5.15'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '3.5.16'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 ext {
-    springBootVersion = "2.5.15"
-    lombokVersion = '1.18.22'
-    guavaVersion = '31.1-jre'
-    swaggerVersion = "3.0.0"
+    springBootVersion = "3.5.16"
+    guavaVersion = '33.4.0-jre'
+    springdocVersion = "2.9.1"
+    mybatisPlusVersion = "3.5.17"
+    druidVersion = "1.2.28"
+    okhttpVersion = "4.12.0"
+    jjwtVersion = "0.12.6"
+    commonsCollections4Version = "4.4"
+    aliOssVersion = "3.18.5"
+    tencentSdkVersion = "3.1.1432"
+    easypoiVersion = "4.5.0"
+    tinyPinyinVersion = "2.0.3.RELEASE"
+    dysmsapiVersion = "2.0.1"
+    openapiutilVersion = "0.1.5"
+    orikaVersion = "1.5.4"
 }
 
 tasks.bootJar {
@@ -19,74 +30,78 @@ allprojects {
     group = GROUPID
     version = VERSION
 
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
     compileJava {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        options.encoding = 'UTF-8'
+        options.compilerArgs += ['-parameters']
     }
 
     compileTestJava {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
         options.encoding = 'UTF-8'
+        options.compilerArgs += ['-parameters']
     }
 
     repositories {
         mavenLocal()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-        maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        maven { url 'https://maven.aliyun.com/repository/spring' }
-        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
         mavenCentral()
     }
-    //不使用缓存，使用仓库中最新的包
+
     configurations.configureEach {
+        exclude group: 'commons-logging', module: 'commons-logging'
         resolutionStrategy.cacheDynamicVersionsFor 10, 'minutes'
         resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
     }
 }
 
 subprojects {
-    apply plugin: 'signing'
     apply plugin: "java-library"
-    apply plugin: 'maven-publish'
     apply plugin: "io.spring.dependency-management"
 
-    dependencies {
-        // lombok
-        implementation 'org.projectlombok:lombok:1.18.22'
-        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
-        // test
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        testImplementation "junit:junit"
-    }
-
     dependencyManagement {
-        imports {
-            mavenBom "com.iiifi:kite-dependencies:1.2.5-SNAPSHOT"
-        }
         imports {
             mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
         }
         dependencies {
-            dependency "io.springfox:springfox-boot-starter:$swaggerVersion"
+            dependency "org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion"
+            dependency "com.baomidou:mybatis-plus-spring-boot3-starter:$mybatisPlusVersion"
+            dependency "com.baomidou:mybatis-plus-jsqlparser:$mybatisPlusVersion"
+            dependency "com.alibaba:druid-spring-boot-starter:$druidVersion"
+            dependency "com.aliyun.oss:aliyun-sdk-oss:$aliOssVersion"
+            dependency "com.tencentcloudapi:tencentcloud-sdk-java:$tencentSdkVersion"
+            dependency "cn.afterturn:easypoi-base:$easypoiVersion"
+            dependency "cn.afterturn:easypoi-web:$easypoiVersion"
+            dependency "cn.afterturn:easypoi-annotation:$easypoiVersion"
+            dependency "io.github.biezhi:TinyPinyin:$tinyPinyinVersion"
+            dependency "com.aliyun:dysmsapi20170525:$dysmsapiVersion"
+            dependency "com.aliyun:openapiutil:$openapiutilVersion"
+            dependency "ma.glasnost.orika:orika-core:$orikaVersion"
             dependency "com.google.guava:guava:$guavaVersion"
-            dependency "org.apache.commons:commons-lang3:3.17.0"
-            dependency "org.apache.commons:commons-collections4:4.4"
-            dependency "com.baomidou:mybatis-plus-boot-starter:3.4.3"
-            dependency "mysql:mysql-connector-java:8.0.22"
-            dependency "com.alibaba:druid-spring-boot-starter:1.2.8"
-            dependency "com.squareup.okhttp3:okhttp:4.9.3"
+            dependency "com.squareup.okhttp3:okhttp:$okhttpVersion"
+            dependency "org.apache.commons:commons-collections4:$commonsCollections4Version"
+            dependency "io.jsonwebtoken:jjwt-api:$jjwtVersion"
+            dependency "io.jsonwebtoken:jjwt-impl:$jjwtVersion"
+            dependency "io.jsonwebtoken:jjwt-jackson:$jjwtVersion"
         }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 
     sourceSets {
         main {
-            resources.srcDirs = ['src/main/java', "src/main/resources"]
+            resources {
+                srcDirs = ["src/main/resources", "src/main/java"]
+                exclude '**/*.java'
+            }
         }
     }
-
-    compileJava.dependsOn(processResources)
 }

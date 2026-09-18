@@ -2,7 +2,7 @@ package com.kite.libai.provider.message.model.dto;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,15 +12,15 @@ public class CommentNotice extends BaseNotice implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-    @ApiModelProperty(value = "评论人id")
+    @Schema(description = "评论人id")
     private Long accountId;
 
-    @ApiModelProperty(value = "评论id")
+    @Schema(description = "评论id")
     private Long commentId;
 
-    @ApiModelProperty(value = "评论内容")
+    @Schema(description = "评论内容")
     private String content;
 
-    @ApiModelProperty(value = "文章id")
+    @Schema(description = "文章id")
     private Long articleId;
 }

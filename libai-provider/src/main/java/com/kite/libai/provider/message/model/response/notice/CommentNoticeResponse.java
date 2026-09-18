@@ -2,7 +2,7 @@ package com.kite.libai.provider.message.model.response.notice;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,30 +12,30 @@ public class CommentNoticeResponse extends BaseNoticeResponse implements Seriali
     private static final long serialVersionUID = 1L;
 
 
-    @ApiModelProperty(value = "评论人id")
+    @Schema(description = "评论人id")
     private Long accountId;
 
-    @ApiModelProperty(value = "评论人昵称")
+    @Schema(description = "评论人昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "评论人头像")
+    @Schema(description = "评论人头像")
     private String avatar;
 
-    @ApiModelProperty(value = "评论id")
+    @Schema(description = "评论id")
     private Long commentId;
 
-    @ApiModelProperty(value = "评论内容")
+    @Schema(description = "评论内容")
     private String content;
 
-    @ApiModelProperty(value = "文章id")
+    @Schema(description = "文章id")
     private Long articleId;
 
-    @ApiModelProperty(value = "文章标题")
+    @Schema(description = "文章标题")
     private String title;
 
-    @ApiModelProperty(value = "封面图")
+    @Schema(description = "封面图")
     private String cover;
 
-    @ApiModelProperty(value = "评论是否已删除")
+    @Schema(description = "评论是否已删除")
     private Boolean deleted;
 }

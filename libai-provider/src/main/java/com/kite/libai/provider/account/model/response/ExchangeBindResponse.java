@@ -2,8 +2,7 @@ package com.kite.libai.provider.account.model.response;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,17 +11,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ApiModel(description = "ExchangeBindVo")
+@Schema(description = "ExchangeBindVo")
 public class ExchangeBindResponse implements Serializable {
 
     private static final long serialVersionUID = -6204617647073168548L;
-    @ApiModelProperty("code")
+    @Schema(description = "code")
     private String code;
 
-    @ApiModelProperty("换绑st")
+    @Schema(description = "换绑st")
     private String exchangeSt;
 
-    @ApiModelProperty("微信昵称")
+    @Schema(description = "微信昵称")
     private String nickname;
 
 

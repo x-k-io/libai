@@ -8,10 +8,10 @@ dependencies {
     // 密码
     api 'org.springframework.security:spring-security-crypto'
     // swagger
-    api "io.springfox:springfox-boot-starter"
-    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310' // 请使用最新版本
+    api "org.springdoc:springdoc-openapi-starter-webmvc-ui"
     // mybatis
-    api 'com.baomidou:mybatis-plus-boot-starter'
+    api 'com.baomidou:mybatis-plus-spring-boot3-starter'
+    api 'com.baomidou:mybatis-plus-jsqlparser'
     api 'com.alibaba:druid-spring-boot-starter'
-    api 'mysql:mysql-connector-java'
+    api 'com.mysql:mysql-connector-j'
 }

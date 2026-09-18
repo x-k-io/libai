@@ -2,7 +2,7 @@ package com.kite.libai.provider.message.model.response.notice;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,24 +11,24 @@ import lombok.EqualsAndHashCode;
 public class LikeNoticeResponse extends BaseNoticeResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "点赞人id")
+    @Schema(description = "点赞人id")
     private Long accountId;
 
-    @ApiModelProperty(value = "点赞人昵称")
+    @Schema(description = "点赞人昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "点赞人头像")
+    @Schema(description = "点赞人头像")
     private String avatar;
 
-    @ApiModelProperty(value = "关系 stranger:陌生人 follower:关注 friend:好友")
+    @Schema(description = "关系 stranger:陌生人 follower:关注 friend:好友")
     private String relation;
 
-    @ApiModelProperty(value = "文章id")
+    @Schema(description = "文章id")
     private Long articleId;
 
-    @ApiModelProperty(value = "文章标题")
+    @Schema(description = "文章标题")
     private String title;
 
-    @ApiModelProperty(value = "封面图")
+    @Schema(description = "封面图")
     private String cover;
 }

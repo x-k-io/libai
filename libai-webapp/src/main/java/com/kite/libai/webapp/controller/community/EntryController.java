@@ -8,8 +8,8 @@ import com.kite.libai.provider.community.presenter.EntryPresenter;
 import com.kite.libai.provider.community.presenter.FollowerFeedPresenter;
 import com.kite.libai.security.annotation.KitePermission;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -32,14 +32,14 @@ public class EntryController {
 
     private final FollowerFeedPresenter followerFeedPresenter;
 
-    @ApiOperation(value = "查询作品详情信息", notes = "查询作品详情信息")
+    @Operation(summary = "查询作品详情信息", description = "查询作品详情信息")
     @GetMapping(value = "/{id}")
     public Result<EntryResponse> getById(@PathVariable Long id) {
         EntryResponse response = entryPresenter.getEntry(id);
         return Result.success(response);
     }
 
-    @ApiOperation(value = "发现页==>分页查询作品")
+    @Operation(summary = "发现页==>分页查询作品")
     @GetMapping(value = "/explore")
     public PageResult<EntryResponse> explore(
             @RequestParam String orderType,
@@ -50,8 +50,8 @@ public class EntryController {
 
     @GetMapping(value = "/location")
     public PageResult<EntryResponse> location(
-            @ApiParam(value = "城市编码") String city,
-            @ApiParam(value = "排序类型") String orderType,
+            @Parameter(description = "城市编码") String city,
+            @Parameter(description = "排序类型") String orderType,
             @RequestParam(required = false, defaultValue = "1") Integer pageNum,
             @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return entryPresenter.location(city, orderType, pageNum, pageSize);
@@ -69,8 +69,8 @@ public class EntryController {
 
     @GetMapping(value = "/circles")
     public PageResult<EntryResponse> circles(
-            @ApiParam(value = "圈子id") Long circleId,
-            @ApiParam(value = "排序类型") String orderType,
+            @Parameter(description = "圈子id") Long circleId,
+            @Parameter(description = "排序类型") String orderType,
             @RequestParam(required = false, defaultValue = "1") Integer pageNum,
             @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return entryPresenter.circles(circleId, orderType, pageNum, pageSize);
@@ -78,8 +78,8 @@ public class EntryController {
 
     @GetMapping(value = "/channels")
     public PageResult<EntryResponse> channels(
-            @ApiParam(value = "频道id") Long channelId,
-            @ApiParam(value = "排序类型") String orderType,
+            @Parameter(description = "频道id") Long channelId,
+            @Parameter(description = "排序类型") String orderType,
             @RequestParam(required = false, defaultValue = "1") Integer pageNum,
             @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return entryPresenter.channels(channelId, orderType, pageNum, pageSize);
@@ -95,7 +95,7 @@ public class EntryController {
 
     @GetMapping(value = "/their")
     public PageResult<EntryResponse> their(
-            @ApiParam(value = "用户id") @RequestParam Long accountId,
+            @Parameter(description = "用户id") @RequestParam Long accountId,
             @RequestParam(required = false, defaultValue = "1") Integer pageNum,
             @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return entryPresenter.their(accountId, pageNum, pageSize);

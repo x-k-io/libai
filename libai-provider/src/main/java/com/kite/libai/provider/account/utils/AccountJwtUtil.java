@@ -8,7 +8,6 @@ import com.kite.libai.provider.account.model.response.AccountTokenVo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
@@ -51,10 +50,10 @@ public class AccountJwtUtil {
         Date expireDate = new Date(now.getTime() + ACCESS_TOKEN_EXPIRE);
 
         return Jwts.builder()
-                .setClaims(claims)
-                .setIssuedAt(now)
-                .setExpiration(expireDate)
-                .signWith(secretKey, SignatureAlgorithm.HS256)
+                .claims(claims)
+                .issuedAt(now)
+                .expiration(expireDate)
+                .signWith(secretKey)
                 .compact();
     }
 
@@ -63,11 +62,11 @@ public class AccountJwtUtil {
      */
     public static Claims getClaimsByToken(String token) {
         try {
-            return Jwts.parserBuilder()
-                    .setSigningKey(secretKey)
+            return Jwts.parser()
+                    .verifyWith(secretKey)
                     .build()
-                    .parseClaimsJws(token)
-                    .getBody();
+                    .parseSignedClaims(token)
+                    .getPayload();
         } catch (ExpiredJwtException e) {
             // token过期异常
             throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);

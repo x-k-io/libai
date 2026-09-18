@@ -2,30 +2,29 @@ package com.kite.libai.provider.community.model.response;
 
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "ChannelResponse", description = "频道")
+@Schema(name = "ChannelResponse", description = "频道")
 public class ChannelResponse {
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "分类")
+    @Schema(description = "分类")
     private String category;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "排序")
+    @Schema(description = "排序")
     private Long orders;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description = "创建时间")
     private LocalDateTime createdAt;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description = "更新时间")
     private LocalDateTime updatedAt;
 
 }

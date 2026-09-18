@@ -2,21 +2,20 @@ package com.kite.libai.provider.account.model.request;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel
+@Schema
 public class AppOauthRequest implements Serializable {
 
     @NotBlank
-    @ApiModelProperty(value = "appCode", example = "appCode")
+    @Schema(description = "appCode", example = "appCode")
     private String appCode;
 
     @NotBlank
-    @ApiModelProperty(value = "code", example = "code")
+    @Schema(description = "code", example = "code")
     private String code;
 }

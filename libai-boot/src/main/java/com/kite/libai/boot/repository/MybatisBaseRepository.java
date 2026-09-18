@@ -27,7 +27,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 
 public class MybatisBaseRepository<M extends BaseMapper<T>, T> implements BaseRepository<T> {
 
@@ -54,11 +55,11 @@ public class MybatisBaseRepository<M extends BaseMapper<T>, T> implements BaseRe
         return ResolvableType.forClass(ClassUtils.getUserClass(this.getClass()));
     }
 
-    protected <E> boolean executeBatch(Collection<E> list, int batchSize, BiConsumer<SqlSession, E> consumer) {
+    protected <E> boolean executeBatch(Collection<E> list, int batchSize, BiFunction<SqlSession, E, Integer> consumer) {
         return SqlHelper.executeBatch(this.entityClass, this.log, list, batchSize, consumer);
     }
 
-    protected <E> boolean executeBatch(Collection<E> list, BiConsumer<SqlSession, E> consumer) {
+    protected <E> boolean executeBatch(Collection<E> list, BiFunction<SqlSession, E, Integer> consumer) {
         return this.executeBatch(list, 1000, consumer);
     }
 
@@ -78,7 +79,7 @@ public class MybatisBaseRepository<M extends BaseMapper<T>, T> implements BaseRe
     public boolean saveBatch(Collection<T> entityList, int batchSize) {
         String sqlStatement = this.getSqlStatement(SqlMethod.INSERT_ONE);
         return this.executeBatch(entityList, batchSize, (sqlSession, entity) -> {
-            sqlSession.insert(sqlStatement, entity);
+            return sqlSession.insert(sqlStatement, entity);
         });
     }
 
@@ -101,7 +102,7 @@ public class MybatisBaseRepository<M extends BaseMapper<T>, T> implements BaseRe
         }, (sqlSession, entity) -> {
             MapperMethod.ParamMap<T> param = new MapperMethod.ParamMap<>();
             param.put("et", entity);
-            sqlSession.update(this.getSqlStatement(SqlMethod.UPDATE_BY_ID), param);
+            return sqlSession.update(this.getSqlStatement(SqlMethod.UPDATE_BY_ID), param);
         });
     }
 
@@ -133,7 +134,7 @@ public class MybatisBaseRepository<M extends BaseMapper<T>, T> implements BaseRe
         return this.executeBatch(entityList, batchSize, (sqlSession, entity) -> {
             MapperMethod.ParamMap<T> param = new MapperMethod.ParamMap<>();
             param.put("et", entity);
-            sqlSession.update(sqlStatement, param);
+            return sqlSession.update(sqlStatement, param);
         });
     }
 

@@ -2,37 +2,36 @@ package com.kite.libai.provider.account.model.request;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "TripartiteAppForm", description = "应用")
+@Schema(name = "TripartiteAppForm", description = "应用")
 public class TripartiteAppRequest implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "WX")
+    @Schema(description = "WX")
     private String type;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "appCode")
+    @Schema(description = "appCode")
     private String appCode;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description = "appSecret")
     private String appSecret;
 
-    @ApiModelProperty(value = "mchId")
+    @Schema(description = "mchId")
     private String mchId;
 
-    @ApiModelProperty(value = "appKey")
+    @Schema(description = "appKey")
     private String appKey;
 
-    @ApiModelProperty(value = "是否开放平台")
+    @Schema(description = "是否开放平台")
     private Boolean isPlatform;
 
 }

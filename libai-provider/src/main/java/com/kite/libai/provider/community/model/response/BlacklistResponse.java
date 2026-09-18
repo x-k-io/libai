@@ -3,30 +3,29 @@ package com.kite.libai.provider.community.model.response;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "AccountBlacklistResponse", description = "用户黑名单")
+@Schema(name = "AccountBlacklistResponse", description = "用户黑名单")
 public class BlacklistResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "账号id")
+    @Schema(description = "账号id")
     private Long accountId;
 
-    @ApiModelProperty(value = "被拉黑者的id")
+    @Schema(description = "被拉黑者的id")
     private Long theirId;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description = "创建时间")
     private LocalDateTime createdAt;
 
-    @ApiModelProperty(value = "昵称")
+    @Schema(description = "昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "头像")
+    @Schema(description = "头像")
     private String avatar;
 }

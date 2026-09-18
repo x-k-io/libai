@@ -3,23 +3,30 @@ package com.kite.libai.boot.event.configuration;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
 import com.kite.libai.boot.event.core.BaseListener;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.List;
 
 @Slf4j
 @Configuration
-@AllArgsConstructor
 public class KiteListenerAutoConfiguration {
 
-    private EventBus eventBus;
+    private final EventBus eventBus;
 
-    private AsyncEventBus asyncEventBus;
+    private final AsyncEventBus asyncEventBus;
 
-    private List<BaseListener> listeners;
+    private final List<BaseListener> listeners;
+
+    public KiteListenerAutoConfiguration(@Qualifier("eventBus") EventBus eventBus,
+                                         @Qualifier("asyncEventBus") AsyncEventBus asyncEventBus,
+                                         List<BaseListener> listeners) {
+        this.eventBus = eventBus;
+        this.asyncEventBus = asyncEventBus;
+        this.listeners = listeners;
+    }
 
     @PostConstruct
     public void init() {

@@ -2,7 +2,7 @@ package com.kite.libai.provider.message.model.dto;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,6 +11,6 @@ import lombok.EqualsAndHashCode;
 public class FollowerNotice extends BaseNotice implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "关注人id")
+    @Schema(description = "关注人id")
     private Long accountId;
 }

@@ -2,7 +2,7 @@ package com.kite.libai.provider.message.model.response.notice;
 
 import java.io.Serializable;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,18 +11,18 @@ import lombok.EqualsAndHashCode;
 public class SystemNoticeResponse extends BaseNoticeResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "标题")
+    @Schema(description = "标题")
     private String title;
 
-    @ApiModelProperty(value = "副标题")
+    @Schema(description = "副标题")
     private String subtitle;
 
-    @ApiModelProperty(value = "封面")
+    @Schema(description = "封面")
     private String cover;
 
-    @ApiModelProperty(value = "节选")
+    @Schema(description = "节选")
     private String excerpt;
 
-    @ApiModelProperty(value = "详情")
+    @Schema(description = "详情")
     private String detail;
 }

@@ -3,70 +3,69 @@ package com.kite.libai.provider.account.model.response;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "TripartiteAccountAdminResponse", description = "三方绑定信息信息")
+@Schema(name = "TripartiteAccountAdminResponse", description = "三方绑定信息信息")
 public class TripartiteAccountAdminResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    @Schema(description = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private String type;
 
-    @ApiModelProperty(value = "appCode")
+    @Schema(description = "appCode")
     private String appCode;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "open_id")
+    @Schema(description = "open_id")
     private String openId;
 
-    @ApiModelProperty(value = "union_id")
+    @Schema(description = "union_id")
     private String unionId;
 
-    @ApiModelProperty(value = "手机号")
+    @Schema(description = "手机号")
     private String mobile;
 
-    @ApiModelProperty(value = "昵称")
+    @Schema(description = "昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "性别")
+    @Schema(description = "性别")
     private String gender;
 
-    @ApiModelProperty(value = "头像")
+    @Schema(description = "头像")
     private String avatar;
 
-    @ApiModelProperty(value = "国家")
+    @Schema(description = "国家")
     private String country;
 
-    @ApiModelProperty(value = "省")
+    @Schema(description = "省")
     private String province;
 
-    @ApiModelProperty(value = "市")
+    @Schema(description = "市")
     private String city;
 
-    @ApiModelProperty(value = "账号id")
+    @Schema(description = "账号id")
     private Long accountId;
 
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description = "创建时间")
     private LocalDateTime createdAt;
 
-    @ApiModelProperty(value = "创建者")
+    @Schema(description = "创建者")
     private String createdBy;
 
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description = "更新时间")
     private LocalDateTime updatedAt;
 
-    @ApiModelProperty(value = "更新者")
+    @Schema(description = "更新者")
     private String updatedBy;
 
-    @ApiModelProperty(value = "是否删除0:否,1:是")
+    @Schema(description = "是否删除0:否,1:是")
     private Boolean isDeleted;
 
 }
