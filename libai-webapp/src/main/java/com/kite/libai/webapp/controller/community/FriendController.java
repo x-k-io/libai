@@ -10,7 +10,6 @@ import com.kite.libai.provider.community.presenter.FriendPresenter;
 import com.kite.libai.provider.community.presenter.UserRecommendPresenter;
 import com.kite.libai.security.annotation.KitePermission;
 
-import io.swagger.v3.oas.annotations.Parameter;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -46,7 +45,7 @@ public class FriendController {
     @DeleteMapping
     @KitePermission
     public Result<Boolean> cancelFollower(
-            @Parameter(description = "被关注人id") @RequestParam Long friendId) {
+            @RequestParam Long friendId) {
         friendPresenter.cancelFollower(RequestContextUtils.getAccountId(), friendId);
         return Result.success();
     }

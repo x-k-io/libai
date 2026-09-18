@@ -4,7 +4,6 @@ import com.kite.libai.core.result.Result;
 import com.kite.libai.core.utils.DigestUtils;
 import com.kite.libai.core.utils.Exceptions;
 import com.kite.libai.provider.tripartite.service.AliOssService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -23,7 +22,6 @@ import java.io.IOException;
 @Validated
 @RestController
 @AllArgsConstructor
-@Tag(name = "图片上传服务")
 @RequestMapping(value = "/api/app/v1/files")
 public class UploadController {
 

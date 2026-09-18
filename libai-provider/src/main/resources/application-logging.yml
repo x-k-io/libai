@@ -25,5 +25,4 @@ logging:
     com.baomidou.mybatisplus: WARN
     com.alibaba.druid: WARN
     io.lettuce: WARN
-    io.swagger: WARN
     org.apache: WARN

@@ -1,6 +1,9 @@
 server:
   port: 11010
 spring:
+  profiles:
+    include: logging
+    active: dev
   servlet:
     multipart:
       max-file-size: 5MB
@@ -29,9 +32,6 @@ spring:
         session-stat-enable: false
         url-pattern: /*
         exclusions: /static/*,*.ico,/druid/*
-  profiles:
-    include: logging
-    active: dev
 mybatis-plus:
   global-config:
     db-config:

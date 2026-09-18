@@ -10,9 +10,7 @@ import lombok.Data;
 @Data
 @TableName("t_base_sensitive_word")
 public class SensitiveWord implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    private Long id;
+        private Long id;
 
     private String type;
 

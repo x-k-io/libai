@@ -9,9 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("t_sys_tripartite_app")
 public class TripartiteApp implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    private Long id;
+        private Long id;
 
     private String appCode;
 

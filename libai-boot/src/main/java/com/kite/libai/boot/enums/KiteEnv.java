@@ -11,8 +11,4 @@ public enum KiteEnv {
     TEST("test"),
     PROD("prod");
     private final String env;
-
-    public static boolean isdev() {
-        return KiteEnv.DEV.equals(SpringContextUtils.getContext().getEnvironment().getActiveProfiles());
-    }
 }

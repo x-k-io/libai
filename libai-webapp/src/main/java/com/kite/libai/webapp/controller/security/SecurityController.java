@@ -9,7 +9,6 @@ import com.kite.libai.provider.account.model.request.RefreshAccessTokenRequest;
 import com.kite.libai.provider.account.model.response.AccountTokenVo;
 import com.kite.libai.provider.account.service.AccountSecurityService;
 import com.kite.libai.provider.account.service.VerifyCodeService;
-import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -55,13 +54,11 @@ public class SecurityController {
     }
 
 
-    @Operation(summary = "未登录发送验证码")
     @PostMapping(value = "/nonLogin/sendCode")
     public Boolean nonLoginSendCode(@Valid @RequestBody NonLoginSendCodeRequest request) {
         return verifyCodeService.nonLoginSendCode(request);
     }
 
-    @Operation(summary = "已登录发送验证码")
     @PostMapping(value = "/login/sendCode")
     public Boolean loginSendCode(@Valid @RequestBody LoginSendCodeRequest request) {
         return verifyCodeService.loginSendCode(request);
