@@ -6,7 +6,7 @@ WORKDIR /workspace
 COPY gradlew settings.gradle build.gradle gradle.properties ./
 COPY gradle ./gradle
 RUN chmod +x gradlew
-RUN ./gradlew --no-daemon resolveDependencies
+RUN ./gradlew --no-daemon resolveDependencies --all
 
 # Copy all remaining source code, no hardcode submodule names
 COPY . .
