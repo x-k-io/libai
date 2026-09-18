@@ -19,7 +19,7 @@ ext {
     tinyPinyinVersion = "2.0.3.RELEASE"
     dysmsapiVersion = "2.0.1"
     openapiutilVersion = "0.1.5"
-    orikaVersion = "1.5.4"
+    modelMapperVersion = "3.2.1"
 }
 
 tasks.bootJar {
@@ -36,12 +36,7 @@ allprojects {
         }
     }
 
-    compileJava {
-        options.encoding = 'UTF-8'
-        options.compilerArgs += ['-parameters']
-    }
-
-    compileTestJava {
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = 'UTF-8'
         options.compilerArgs += ['-parameters']
     }
@@ -80,7 +75,7 @@ subprojects {
             dependency "io.github.biezhi:TinyPinyin:$tinyPinyinVersion"
             dependency "com.aliyun:dysmsapi20170525:$dysmsapiVersion"
             dependency "com.aliyun:openapiutil:$openapiutilVersion"
-            dependency "ma.glasnost.orika:orika-core:$orikaVersion"
+            dependency "org.modelmapper:modelmapper:$modelMapperVersion"
             dependency "com.google.guava:guava:$guavaVersion"
             dependency "com.squareup.okhttp3:okhttp:$okhttpVersion"
             dependency "org.apache.commons:commons-collections4:$commonsCollections4Version"

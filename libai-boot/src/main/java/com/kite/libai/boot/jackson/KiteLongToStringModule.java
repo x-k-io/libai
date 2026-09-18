@@ -7,7 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.PackageVersion;
 public class KiteLongToStringModule extends SimpleModule {
 
     public KiteLongToStringModule() {
-        super(PackageVersion.VERSION);
+        super("KiteLongToStringModule", PackageVersion.VERSION);
         this.addSerializer(Long.class, ToStringSerializer.instance);
         this.addSerializer(Long.TYPE, ToStringSerializer.instance);
     }

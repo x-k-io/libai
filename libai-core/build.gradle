@@ -2,7 +2,8 @@ dependencies {
     api 'org.apache.commons:commons-collections4'
     api 'org.apache.commons:commons-lang3'
     api "com.squareup.okhttp3:okhttp"
-    api 'ma.glasnost.orika:orika-core'
+    api 'org.modelmapper:modelmapper'
+    api 'org.slf4j:slf4j-api'
     api 'com.fasterxml.jackson.core:jackson-databind'
     api 'com.fasterxml.jackson.core:jackson-annotations'
     api 'com.fasterxml.jackson.core:jackson-core'

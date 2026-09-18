@@ -17,7 +17,7 @@ import java.time.LocalTime;
 public class KiteJavaTimeModule extends SimpleModule {
 
     public KiteJavaTimeModule() {
-        super(PackageVersion.VERSION);
+        super("KiteJavaTimeModule", PackageVersion.VERSION);
         this.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateUtils.DATETIME_FORMATTER));
         this.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateUtils.DATE_FORMATTER));
         this.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateUtils.TIME_FORMATTER));
