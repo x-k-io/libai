@@ -1,10 +1,9 @@
-# Git
+# Git 相关
 .git
 .gitignore
 .github
 
-# 本地构建产物
-**/build
+# 本地 Gradle 缓存（这个可以保留，因为容器编译不需要本地的 .gradle 缓存）
 **/.gradle
 
 # IDE
