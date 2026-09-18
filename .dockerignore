@@ -1,17 +1,29 @@
-build/
-.gradle/
-.idea/
-.vscode/
-*.iml
-logs/
-*.log
-*.out
-.env
-*.properties.local
-*.yml.local
-Dockerfile
-.dockerignore
+# Git
 .git
 .gitignore
-README.md
-docs/
+.github
+
+# 本地构建产物
+**/build
+**/.gradle
+
+# IDE
+.idea
+.vscode
+*.iml
+
+# 日志
+logs
+*.log
+*.out
+
+# 文档
+docs
+
+# 环境文件
+.env
+*.properties.local
+
+# Docker自身
+Dockerfile
+.dockerignore
