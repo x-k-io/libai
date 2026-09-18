@@ -4,12 +4,12 @@ WORKDIR /workspace
 
 # 优先拷贝gradle脚本，利用docker缓存：依赖不变就不用重新下载
 COPY gradlew settings.gradle build.gradle gradle.properties ./
-COPY gradle ./gradle
+COPY gradle gradle
 RUN chmod +x gradlew
 RUN ./gradlew --no-daemon resolveDependencies
 
 # 拷贝业务源码
-COPY src ./src
+COPY src src
 
 # 打包，跳过单元测试（CI流水线如果需要跑测试，删掉 -x test）
 RUN ./gradlew --no-daemon bootJar -x test
