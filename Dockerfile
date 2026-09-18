@@ -1,42 +1,32 @@
-# ---------- build stage ----------
-FROM eclipse-temurin:17-jdk-jammy AS builder
-WORKDIR /workspace
-
-# Copy gradle build scripts first, cache dependencies
-COPY gradlew settings.gradle build.gradle gradle.properties ./
-COPY gradle ./gradle
-RUN chmod +x gradlew
-RUN ./gradlew --no-daemon dependencies --all
-
-# Copy all remaining source code, no hardcode submodule names
-COPY . .
-
-# Build bootJar, skip test
-RUN ./gradlew --no-daemon bootJar -x test
-
-# Recursively find bootJar and split by layertools
-RUN cp "$(find . -path '*/build/libs/*.jar' ! -name '*-plain.jar' | head -n 1)" app.jar \
-    && java -Djarmode=layertools -jar app.jar extract --destination layers
-
-# ---------- runtime stage ----------
 FROM eclipse-temurin:17-jre-jammy
 
-# Set timezone
+# 1. 设置时区
 RUN apt-get update && apt-get install -y --no-install-recommends tzdata && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Non-root user
+# 2. 创建非 root 用户
 RUN groupadd --system --gid 1001 spring \
     && useradd --system --uid 1001 --gid spring --create-home spring
 
 WORKDIR /app
 
-COPY --from=builder --chown=spring:spring /workspace/layers/dependencies/ ./
-COPY --from=builder --chown=spring:spring /workspace/layers/spring-boot-loader/ ./
-COPY --from=builder --chown=spring:spring /workspace/layers/snapshot-dependencies/ ./
-COPY --from=builder --chown=spring:spring /workspace/layers/application/ ./
+# 3. 接收外部编译好的 Jar 包（通过构建参数或直接 COPY）
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
+
+# 4. 使用 layertools 解压分层
+RUN java -Djarmode=layertools -jar app.jar extract --destination layers
+
+# 5. 复制解压后的各层到对应目录
+COPY --chown=spring:spring layers/dependencies/ ./
+COPY --chown=spring:spring layers/spring-boot-loader/ ./
+COPY --chown=spring:spring layers/snapshot-dependencies/ ./
+COPY --chown=spring:spring layers/application/ ./
+
+# 清理掉原始的 app.jar，只留解压后的层
+RUN rm app.jar
 
 USER spring
 
