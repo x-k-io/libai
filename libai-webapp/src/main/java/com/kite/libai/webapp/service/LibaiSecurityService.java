@@ -3,7 +3,6 @@ package com.kite.libai.webapp.service;
 import com.kite.libai.core.model.KiteAccount;
 import com.kite.libai.provider.account.service.AccountSecurityService;
 import com.kite.libai.provider.throne.service.UserSecurityService;
-import com.kite.libai.security.service.KiteSecurityService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

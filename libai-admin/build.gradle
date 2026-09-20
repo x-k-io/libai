@@ -1,4 +1,0 @@
-dependencies {
-    api project(":libai-security")
-    api project(":libai-provider")
-}
