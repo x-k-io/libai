@@ -1,8 +1,8 @@
 package com.kite.libai.webapp.controller.app.common;
 
-import com.kite.libai.core.result.Result;
-import com.kite.libai.core.utils.DigestUtils;
-import com.kite.libai.core.utils.Exceptions;
+import com.kite.libai.common.result.Result;
+import com.kite.libai.common.utils.DigestUtils;
+import com.kite.libai.common.utils.Exceptions;
 import com.kite.libai.provider.tripartite.service.AliOssService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

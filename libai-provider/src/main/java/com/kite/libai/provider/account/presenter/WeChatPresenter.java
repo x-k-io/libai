@@ -1,7 +1,7 @@
 package com.kite.libai.provider.account.presenter;
 
-import com.kite.libai.boot.cache.LibaiRedisTemplate;
-import com.kite.libai.core.utils.RandomUtils;
+import com.kite.libai.core.cache.LibaiRedisTemplate;
+import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.account.model.entity.TripartiteAccount;
 import com.kite.libai.provider.account.model.entity.TripartiteApp;
@@ -18,12 +18,11 @@ import com.kite.libai.provider.tripartite.feign.WeChatRemoteService;
 import com.kite.libai.provider.tripartite.feign.model.WeChatInfo;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.result.Result;
-import com.kite.libai.core.result.SystemCode;
-import com.kite.libai.core.utils.JsonUtils;
+import com.kite.libai.common.result.Result;
+import com.kite.libai.common.utils.JsonUtils;
 
 import org.apache.commons.lang3.StringUtils;
-import com.kite.libai.boot.cache.CacheKeys;
+import com.kite.libai.core.cache.CacheKeys;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.enums.AccountTypes;
 import com.kite.libai.provider.account.enums.Gender;

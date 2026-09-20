@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.utils.ListUtils;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.utils.ListUtils;
 import com.kite.libai.provider.throne.model.entity.User;
 import com.kite.libai.provider.community.assemble.EntryAssemble;
 import com.kite.libai.provider.community.event.producer.BrowseEventProducer;
@@ -20,9 +20,8 @@ import com.kite.libai.provider.community.model.response.ReviewerResponse;
 import com.kite.libai.provider.community.service.BrowseService;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.exception.ServiceException;
 import org.apache.commons.collections4.CollectionUtils;
 import com.kite.libai.provider.community.enums.EntryStatus;
 import com.kite.libai.provider.community.enums.OrderType;
@@ -30,7 +29,7 @@ import com.kite.libai.provider.throne.service.UserService;
 import com.kite.libai.provider.community.service.EntryService;
 import com.kite.libai.provider.community.service.FavoriteService;
 import com.kite.libai.provider.throne.service.UserRoleService;
-import com.kite.libai.boot.properties.KiteLibaiProperties;
+import com.kite.libai.core.properties.KiteLibaiProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

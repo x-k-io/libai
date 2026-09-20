@@ -3,7 +3,7 @@ package com.kite.libai.provider.community.event.producer;
 import com.kite.libai.provider.community.service.EntryService;
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.boot.event.core.KiteEventService;
+import com.kite.libai.core.event.core.KiteEventService;
 import com.kite.libai.provider.community.enums.EntryEventType;
 import com.kite.libai.provider.community.event.model.EntryEvent;
 import com.kite.libai.provider.community.model.entity.Entry;

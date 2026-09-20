@@ -7,8 +7,8 @@ import com.kite.libai.provider.community.strategy.factory.EntryProcessorFactory;
 import org.springframework.stereotype.Component;
 
 import com.google.common.eventbus.Subscribe;
-import com.kite.libai.boot.spring.SpringContextUtils;
-import com.kite.libai.boot.event.core.BaseListener;
+import com.kite.libai.core.spring.SpringContextUtils;
+import com.kite.libai.core.event.core.BaseListener;
 import com.kite.libai.provider.community.enums.EntryEventType;
 
 import lombok.AllArgsConstructor;

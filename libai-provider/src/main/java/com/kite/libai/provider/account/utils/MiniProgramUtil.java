@@ -11,8 +11,8 @@ import javax.crypto.spec.SecretKeySpec;
 import com.kite.libai.provider.tripartite.feign.model.WeChatInfo;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import com.kite.libai.core.utils.Charsets;
-import com.kite.libai.core.utils.JsonUtils;
+import com.kite.libai.common.utils.Charsets;
+import com.kite.libai.common.utils.JsonUtils;
 import com.kite.libai.provider.tripartite.feign.model.WeChatPhone;
 
 import lombok.extern.slf4j.Slf4j;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.model.entity.TripartiteApp;
 import com.kite.libai.provider.account.model.request.TripartiteAppRequest;
 import com.kite.libai.provider.account.model.response.TripartiteAppAdminResponse;

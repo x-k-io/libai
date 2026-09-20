@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kite.libai.provider.account.enums.AccountStatus;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 
 import org.apache.commons.lang3.StringUtils;
 import com.kite.libai.provider.account.mapper.AccountMapper;

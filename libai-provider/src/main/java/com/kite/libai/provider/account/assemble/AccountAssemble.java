@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.account.model.response.AccountResponse;
 import com.kite.libai.provider.community.model.entity.UserSocial;
@@ -13,7 +13,7 @@ import com.kite.libai.provider.community.service.UserSocialService;
 import org.springframework.stereotype.Component;
 
 import org.apache.commons.collections4.CollectionUtils;
-import com.kite.libai.core.utils.DesensitizationUtils;
+import com.kite.libai.common.utils.DesensitizationUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

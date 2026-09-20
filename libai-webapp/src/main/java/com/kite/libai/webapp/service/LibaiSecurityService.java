@@ -1,6 +1,7 @@
 package com.kite.libai.webapp.service;
 
-import com.kite.libai.core.model.KiteAccount;
+import com.kite.libai.boot.service.KiteSecurityService;
+import com.kite.libai.common.model.KiteAccount;
 import com.kite.libai.provider.account.service.AccountSecurityService;
 import com.kite.libai.provider.throne.service.UserSecurityService;
 import lombok.AllArgsConstructor;

@@ -3,7 +3,7 @@ package com.kite.libai.provider.community.assemble;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.community.model.common.ArticleSection;
 import com.kite.libai.provider.community.model.entity.Article;
 import com.kite.libai.provider.community.model.entity.Entry;
@@ -11,7 +11,7 @@ import com.kite.libai.provider.community.model.request.ArticleRequest;
 import org.springframework.stereotype.Component;
 
 import org.apache.commons.collections4.CollectionUtils;
-import com.kite.libai.core.utils.ListUtils;
+import com.kite.libai.common.utils.ListUtils;
 import com.kite.libai.provider.community.enums.EntityType;
 
 import lombok.AllArgsConstructor;

@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.community.model.entity.Blacklist;
 import com.kite.libai.provider.community.repository.BlacklistRepository;
 import org.springframework.stereotype.Service;

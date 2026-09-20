@@ -1,6 +1,6 @@
 package com.kite.libai.provider.tripartite.feign;
 
-import com.kite.libai.core.utils.OkHttpUtils;
+import com.kite.libai.common.utils.OkHttpUtils;
 import com.kite.libai.provider.tripartite.feign.model.WeChatMiniProgramPages;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
 package com.kite.libai.provider.community.presenter;
 
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.community.model.entity.Browse;
 import com.kite.libai.provider.community.service.BrowseService;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

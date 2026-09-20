@@ -5,7 +5,7 @@ import com.kite.libai.provider.community.service.BrowseService;
 import org.springframework.stereotype.Component;
 
 import com.google.common.eventbus.Subscribe;
-import com.kite.libai.boot.event.core.BaseListener;
+import com.kite.libai.core.event.core.BaseListener;
 import com.kite.libai.provider.community.event.model.BrowseEvent;
 
 import lombok.AllArgsConstructor;

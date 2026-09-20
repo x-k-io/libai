@@ -3,7 +3,7 @@ package com.kite.libai.provider.throne.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.throne.model.entity.UserRole;
 import com.kite.libai.provider.throne.repository.UserRoleRepository;
 import org.springframework.stereotype.Service;

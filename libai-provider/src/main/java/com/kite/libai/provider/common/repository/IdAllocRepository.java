@@ -1,6 +1,6 @@
 package com.kite.libai.provider.common.repository;
 
-import com.kite.libai.boot.repository.BaseRepository;
+import com.kite.libai.core.repository.BaseRepository;
 import com.kite.libai.provider.common.model.entity.IdAlloc;
 
 public interface IdAllocRepository extends BaseRepository<IdAlloc> {

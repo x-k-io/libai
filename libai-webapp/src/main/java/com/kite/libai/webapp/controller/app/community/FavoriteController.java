@@ -1,9 +1,9 @@
 package com.kite.libai.webapp.controller.app.community;
 
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.result.Result;
 import com.kite.libai.provider.community.model.request.FavoriteRequest;
 import com.kite.libai.provider.community.presenter.FavoritePresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

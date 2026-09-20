@@ -1,7 +1,7 @@
 package com.kite.libai.provider.account.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 
 import org.apache.commons.lang3.StringUtils;
 import com.kite.libai.provider.account.mapper.TripartiteAccountMapper;

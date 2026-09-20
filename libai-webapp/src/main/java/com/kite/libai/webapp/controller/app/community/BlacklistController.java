@@ -1,9 +1,9 @@
 package com.kite.libai.webapp.controller.app.community;
 
-import com.kite.libai.core.context.RequestContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.provider.community.model.response.BlacklistResponse;
 import com.kite.libai.provider.community.presenter.BlacklistPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

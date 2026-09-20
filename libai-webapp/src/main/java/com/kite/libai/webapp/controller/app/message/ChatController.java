@@ -1,13 +1,13 @@
 package com.kite.libai.webapp.controller.app.message;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.result.Result;
 import com.kite.libai.provider.message.model.request.ChatRequest;
 import com.kite.libai.provider.message.model.request.MessageRequest;
 import com.kite.libai.provider.message.model.response.ChatResponse;
 import com.kite.libai.provider.message.model.response.MessageResponse;
 import com.kite.libai.provider.message.presenter.ChatPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

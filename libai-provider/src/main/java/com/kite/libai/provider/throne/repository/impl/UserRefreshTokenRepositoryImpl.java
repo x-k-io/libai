@@ -1,7 +1,7 @@
 package com.kite.libai.provider.throne.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.throne.mapper.UserRefreshTokenMapper;
 import com.kite.libai.provider.throne.model.entity.UserRefreshToken;
 import com.kite.libai.provider.throne.repository.UserRefreshTokenRepository;

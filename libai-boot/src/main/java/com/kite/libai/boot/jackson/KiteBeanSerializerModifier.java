@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
-import com.kite.libai.core.utils.StringPool;
+import com.kite.libai.common.utils.StringPool;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;

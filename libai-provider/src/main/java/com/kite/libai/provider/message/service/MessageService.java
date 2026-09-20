@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.message.model.entity.Message;
 import com.kite.libai.provider.message.repository.MessageRepository;
 import org.springframework.stereotype.Service;

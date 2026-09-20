@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.community.model.entity.Like;
 import com.kite.libai.provider.community.repository.LikeRepository;
 import org.springframework.stereotype.Service;

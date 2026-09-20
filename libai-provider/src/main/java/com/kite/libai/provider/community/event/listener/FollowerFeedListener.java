@@ -5,7 +5,7 @@ import com.kite.libai.provider.community.presenter.FollowerFeedPresenter;
 import org.springframework.stereotype.Component;
 
 import com.google.common.eventbus.Subscribe;
-import com.kite.libai.boot.event.core.BaseListener;
+import com.kite.libai.core.event.core.BaseListener;
 import com.kite.libai.provider.community.enums.EntryEventType;
 
 import lombok.AllArgsConstructor;

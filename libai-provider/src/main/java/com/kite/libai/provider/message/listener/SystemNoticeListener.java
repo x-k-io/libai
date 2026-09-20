@@ -6,8 +6,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.utils.JsonUtils;
-import com.kite.libai.boot.event.core.BaseListener;
+import com.kite.libai.common.utils.JsonUtils;
+import com.kite.libai.core.event.core.BaseListener;
 import com.kite.libai.provider.message.enums.NoticeType;
 import com.kite.libai.provider.message.event.SystemNoticeEvent;
 import com.kite.libai.provider.message.presenter.NoticePresenter;

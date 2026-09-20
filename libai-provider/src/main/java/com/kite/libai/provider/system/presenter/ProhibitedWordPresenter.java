@@ -3,15 +3,14 @@ package com.kite.libai.provider.system.presenter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.system.model.entity.ProhibitedWord;
 import com.kite.libai.provider.system.model.request.ProhibitedWordRequest;
 import com.kite.libai.provider.system.service.ProhibitedWordService;
 
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
 import org.apache.commons.collections4.CollectionUtils;
 
 import lombok.AllArgsConstructor;

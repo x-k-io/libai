@@ -1,7 +1,6 @@
 package com.kite.libai.webapp.controller.admin.security;
 
-import com.kite.libai.core.model.KiteAccount;
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.model.KiteAccount;
 import com.kite.libai.provider.account.model.request.RefreshAccessTokenRequest;
 import com.kite.libai.provider.throne.model.request.AdminLoginRequest;
 import com.kite.libai.provider.throne.model.request.UserLogoutRequest;

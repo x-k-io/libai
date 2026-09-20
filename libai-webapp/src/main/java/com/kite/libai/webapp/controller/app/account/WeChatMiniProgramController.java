@@ -1,6 +1,6 @@
 package com.kite.libai.webapp.controller.app.account;
 
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.result.Result;
 import com.kite.libai.provider.account.model.request.AppOauthRequest;
 import com.kite.libai.provider.account.model.request.ExchangeBindRequest;
 import com.kite.libai.provider.account.model.request.WeChatAuthRequest;

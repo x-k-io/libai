@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.community.model.entity.Topic;
 import com.kite.libai.provider.community.model.request.TopicRequest;
 import com.kite.libai.provider.community.model.response.TopicResponse;

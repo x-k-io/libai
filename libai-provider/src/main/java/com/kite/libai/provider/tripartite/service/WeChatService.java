@@ -1,6 +1,6 @@
 package com.kite.libai.provider.tripartite.service;
 
-import com.kite.libai.boot.cache.LibaiRedisTemplate;
+import com.kite.libai.core.cache.LibaiRedisTemplate;
 import com.kite.libai.provider.account.model.entity.TripartiteApp;
 import com.kite.libai.provider.tripartite.feign.WeChatRemoteService;
 import com.kite.libai.provider.tripartite.feign.model.WeChatMiniProgramPage;
@@ -8,10 +8,10 @@ import com.kite.libai.provider.tripartite.feign.model.WeChatMiniProgramPages;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.core.utils.ListUtils;
-import com.kite.libai.boot.cache.CacheKeys;
+import com.kite.libai.common.utils.ListUtils;
+import com.kite.libai.core.cache.CacheKeys;
 import com.kite.libai.provider.account.service.TripartiteAppService;
-import com.kite.libai.boot.properties.KiteLibaiProperties;
+import com.kite.libai.core.properties.KiteLibaiProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

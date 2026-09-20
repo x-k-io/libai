@@ -6,9 +6,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.core.repository.BaseService;
+import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.provider.community.model.entity.Topic;
 import com.kite.libai.provider.community.repository.TopicRepository;
 import org.springframework.stereotype.Service;

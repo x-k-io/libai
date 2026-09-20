@@ -2,14 +2,14 @@ package com.kite.libai.provider.message.service;
 
 import java.util.List;
 
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.message.model.entity.NoticeRemind;
 import com.kite.libai.provider.message.repository.NoticeRemindRepository;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.core.utils.ListUtils;
+import com.kite.libai.common.utils.ListUtils;
 import com.kite.libai.provider.message.enums.NoticeType;
 
 import lombok.AllArgsConstructor;

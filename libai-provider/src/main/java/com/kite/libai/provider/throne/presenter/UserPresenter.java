@@ -1,10 +1,10 @@
 package com.kite.libai.provider.throne.presenter;
 
-import com.kite.libai.core.enums.UserType;
-import com.kite.libai.core.model.KiteAccount;
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.utils.BeanUtils;
-import com.kite.libai.core.utils.DesensitizationUtils;
+import com.kite.libai.common.enums.UserType;
+import com.kite.libai.common.model.KiteAccount;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.utils.BeanUtils;
+import com.kite.libai.common.utils.DesensitizationUtils;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.throne.service.UserRefreshTokenService;
 import com.kite.libai.provider.throne.model.request.UpdatePasswordRequest;
@@ -26,8 +26,8 @@ import com.kite.libai.provider.throne.service.UserService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.SystemCode;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

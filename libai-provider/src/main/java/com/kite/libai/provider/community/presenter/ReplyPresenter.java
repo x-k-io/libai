@@ -2,7 +2,7 @@ package com.kite.libai.provider.community.presenter;
 
 import java.util.List;
 
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.community.assemble.ReplyAssemble;
 import com.kite.libai.provider.community.event.producer.ReplyEventProducer;
@@ -15,8 +15,8 @@ import com.kite.libai.provider.tripartite.response.AuditResponse;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.SystemCode;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.account.service.AccountService;
 import com.kite.libai.provider.community.service.EntryService;

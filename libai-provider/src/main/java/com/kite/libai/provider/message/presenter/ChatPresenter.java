@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.account.service.AccountService;
 import com.kite.libai.provider.community.model.entity.Friend;
@@ -23,9 +23,8 @@ import com.kite.libai.provider.message.service.MessageService;
 import com.kite.libai.provider.message.service.ChatService;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.exception.ServiceException;
 import org.apache.commons.collections4.CollectionUtils;
 import com.kite.libai.provider.message.enums.ChatDetailStatus;
 import com.kite.libai.provider.message.enums.RelationType;

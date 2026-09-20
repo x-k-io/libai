@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.community.model.entity.UserSocial;
 import com.kite.libai.provider.community.repository.UserSocialRepository;
 import org.springframework.scheduling.annotation.Async;

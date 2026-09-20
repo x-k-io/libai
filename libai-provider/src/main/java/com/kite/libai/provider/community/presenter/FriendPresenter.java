@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.community.assemble.FriendAssemble;
 import com.kite.libai.provider.community.event.producer.FollowerEventProducer;
 import com.kite.libai.provider.community.model.entity.Blacklist;
@@ -15,8 +15,7 @@ import com.kite.libai.provider.community.service.FriendService;
 import com.kite.libai.provider.message.model.entity.ChatDetail;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.provider.message.enums.ChatDetailStatus;
 import com.kite.libai.provider.community.service.BlacklistService;
 import com.kite.libai.provider.message.service.ChatDetailService;

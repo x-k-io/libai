@@ -20,7 +20,7 @@ import com.kite.libai.provider.community.service.UserSocialService;
 import org.springframework.stereotype.Component;
 
 import com.google.common.eventbus.Subscribe;
-import com.kite.libai.boot.event.core.BaseListener;
+import com.kite.libai.core.event.core.BaseListener;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

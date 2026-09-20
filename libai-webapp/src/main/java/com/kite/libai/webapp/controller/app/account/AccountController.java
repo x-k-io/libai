@@ -1,6 +1,6 @@
 package com.kite.libai.webapp.controller.app.account;
 
-import com.kite.libai.core.context.RequestContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.provider.account.model.request.BindMobileRequest;
 import com.kite.libai.provider.account.model.request.GenUpdateMobileTicketRequest;
 import com.kite.libai.provider.account.model.request.UpdateAccountRequest;
@@ -8,7 +8,7 @@ import com.kite.libai.provider.account.model.request.ResetPasswordRequest;
 import com.kite.libai.provider.account.model.request.UpdatePasswordRequest;
 import com.kite.libai.provider.account.model.response.AccountResponse;
 import com.kite.libai.provider.account.presenter.AccountPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

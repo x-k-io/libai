@@ -6,17 +6,17 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.community.model.entity.Comment;
 import com.kite.libai.provider.community.model.response.CommentAdminResponse;
 import com.kite.libai.provider.community.model.response.CommentResponse;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
 import org.apache.commons.collections4.CollectionUtils;
-import com.kite.libai.core.utils.ListUtils;
-import com.kite.libai.core.utils.RelativeDateFormat;
+import com.kite.libai.common.utils.ListUtils;
+import com.kite.libai.common.utils.RelativeDateFormat;
 import com.kite.libai.provider.account.service.AccountService;
 import com.kite.libai.provider.community.service.LikeService;
 

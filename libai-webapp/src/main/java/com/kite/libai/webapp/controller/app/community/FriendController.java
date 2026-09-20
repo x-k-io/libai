@@ -1,14 +1,14 @@
 package com.kite.libai.webapp.controller.app.community;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.result.Result;
 import com.kite.libai.provider.community.model.response.FriendResponse;
 import com.kite.libai.provider.community.model.response.RecommendFriendResponse;
 import com.kite.libai.provider.community.model.response.RecommendResponse;
 import com.kite.libai.provider.community.presenter.FriendPresenter;
 import com.kite.libai.provider.community.presenter.UserRecommendPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

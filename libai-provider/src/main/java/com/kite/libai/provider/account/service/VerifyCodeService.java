@@ -1,14 +1,14 @@
 package com.kite.libai.provider.account.service;
 
-import com.kite.libai.boot.cache.CacheKey;
-import com.kite.libai.boot.cache.CacheKeys;
-import com.kite.libai.boot.cache.LibaiRedisTemplate;
-import com.kite.libai.boot.spring.SpringContextUtils;
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
-import com.kite.libai.core.utils.RandomType;
-import com.kite.libai.core.utils.RandomUtils;
+import com.kite.libai.core.cache.CacheKey;
+import com.kite.libai.core.cache.CacheKeys;
+import com.kite.libai.core.cache.LibaiRedisTemplate;
+import com.kite.libai.core.spring.SpringContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.SystemCode;
+import com.kite.libai.common.utils.RandomType;
+import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.enums.VerifyCodeType;
 import com.kite.libai.provider.account.model.entity.Account;

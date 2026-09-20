@@ -1,7 +1,7 @@
 package com.kite.libai.provider.message.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.message.enums.ChatDetailStatus;
 
 import org.apache.commons.lang3.StringUtils;

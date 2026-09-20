@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.community.model.entity.Favorite;
 import com.kite.libai.provider.community.model.request.FavoriteRequest;
 import com.kite.libai.provider.community.model.response.FavoriteInternalResponse;

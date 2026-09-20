@@ -5,7 +5,7 @@ import com.kite.libai.provider.community.model.entity.Like;
 import com.kite.libai.provider.community.model.request.LikeRequest;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.provider.community.service.LikeService;
 
 import lombok.AllArgsConstructor;

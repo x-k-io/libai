@@ -1,9 +1,8 @@
 package com.kite.libai.provider.account.utils;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.KiteSecurityCode;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.provider.account.model.entity.AccountRefreshToken;
-import com.kite.libai.provider.account.model.entity.KiteAccountSession;
 import com.kite.libai.provider.account.model.response.AccountTokenVo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

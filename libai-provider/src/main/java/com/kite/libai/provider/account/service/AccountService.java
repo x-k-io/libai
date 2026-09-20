@@ -7,11 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
-import com.kite.libai.core.enums.UserType;
-import com.kite.libai.core.model.KiteAccount;
-import com.kite.libai.core.utils.DesensitizationUtils;
-import com.kite.libai.core.utils.Exceptions;
+import com.kite.libai.common.utils.Exceptions;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.account.model.request.CreateAccountRequest;
@@ -24,8 +20,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.SystemCode;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.account.enums.AccountTypes;
 import com.kite.libai.provider.account.enums.Gender;

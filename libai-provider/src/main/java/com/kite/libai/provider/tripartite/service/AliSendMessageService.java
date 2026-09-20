@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
 import com.aliyun.dysmsapi20170525.models.SendSmsResponse;
 import com.aliyun.teaopenapi.models.Config;
-import com.kite.libai.core.utils.JsonUtils;
-import com.kite.libai.boot.properties.AliYunProperties;
+import com.kite.libai.common.utils.JsonUtils;
+import com.kite.libai.core.properties.AliYunProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

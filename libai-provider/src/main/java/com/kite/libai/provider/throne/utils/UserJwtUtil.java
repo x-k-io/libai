@@ -1,7 +1,7 @@
 package com.kite.libai.provider.throne.utils;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.KiteSecurityCode;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.provider.account.utils.AccountJwtUtil;
 import com.kite.libai.provider.throne.model.entity.UserRefreshToken;
 import com.kite.libai.provider.throne.model.vo.UserTokenVo;

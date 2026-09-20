@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
 import com.kite.libai.provider.account.model.entity.TripartiteAccount;
 import com.kite.libai.provider.account.repository.TripartiteAccountRepository;
 import org.springframework.stereotype.Service;

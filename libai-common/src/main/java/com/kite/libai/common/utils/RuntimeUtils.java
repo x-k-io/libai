@@ -1,0 +1,73 @@
+package com.kite.libai.common.utils;
+
+import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
+
+import java.lang.management.ManagementFactory;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.List;
+
+@UtilityClass
+public class RuntimeUtils {
+    private static volatile int pId = -1;
+    private static final int CPU_NUM = Runtime.getRuntime().availableProcessors();
+
+    /**
+     * 获得当前进程的PID
+     * 当失败时返回-1
+     *
+     * @return pid
+     */
+    public static int getPId() {
+        if (pId > 0) {
+            return pId;
+        }
+        // something like '<pid>@<hostname>', at least in SUN / Oracle JVMs
+        final String jvmName = ManagementFactory.getRuntimeMXBean().getName();
+        final int index = jvmName.indexOf(CharPool.AT);
+        if (index > 0) {
+            pId = NumberUtils.toInt(jvmName.substring(0, index), -1);
+            return pId;
+        }
+        return -1;
+    }
+
+    /**
+     * 返回应用启动的时间
+     *
+     * @return {Instant}
+     */
+    public static Instant getStartTime() {
+        return Instant.ofEpochMilli(ManagementFactory.getRuntimeMXBean().getStartTime());
+    }
+
+    /**
+     * 返回应用启动到现在的时间
+     *
+     * @return {Duration}
+     */
+    public static Duration getUpTime() {
+        return Duration.ofMillis(ManagementFactory.getRuntimeMXBean().getUptime());
+    }
+
+    /**
+     * 返回输入的JVM参数列表
+     *
+     * @return jvm参数
+     */
+    public static String getJvmArguments() {
+        List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
+        return StringUtils.join(vmArguments, StringPool.SPACE);
+    }
+
+    /**
+     * 获取CPU核数
+     *
+     * @return cpu count
+     */
+    public static int getCpuNum() {
+        return CPU_NUM;
+    }
+
+}

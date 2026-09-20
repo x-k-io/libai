@@ -1,7 +1,7 @@
 package com.kite.libai.provider.message.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.message.mapper.MessageMapper;
 import com.kite.libai.provider.message.model.entity.Message;
 import com.kite.libai.provider.message.repository.MessageRepository;

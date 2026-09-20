@@ -3,7 +3,7 @@ package com.kite.libai.provider.community.event.producer;
 import com.kite.libai.provider.community.model.entity.Favorite;
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.boot.event.core.KiteEventService;
+import com.kite.libai.core.event.core.KiteEventService;
 import com.kite.libai.provider.community.enums.FavoriteEventType;
 import com.kite.libai.provider.community.event.model.FavoriteEvent;
 

@@ -1,7 +1,7 @@
 package com.kite.libai.provider.account.enums;
 
-import com.kite.libai.core.result.IResultCode;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.result.IResultCode;
+import com.kite.libai.common.result.SystemCode;
 import lombok.Getter;
 
 @Getter

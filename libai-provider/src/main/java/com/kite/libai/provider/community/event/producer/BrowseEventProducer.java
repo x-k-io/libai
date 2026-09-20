@@ -2,7 +2,7 @@ package com.kite.libai.provider.community.event.producer;
 
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.boot.event.core.KiteEventService;
+import com.kite.libai.core.event.core.KiteEventService;
 import com.kite.libai.provider.community.event.model.BrowseEvent;
 import com.kite.libai.provider.community.model.entity.Entry;
 

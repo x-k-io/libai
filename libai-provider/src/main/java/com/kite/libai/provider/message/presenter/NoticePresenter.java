@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 import jakarta.annotation.PostConstruct;
 
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.message.model.entity.Notice;
 import com.kite.libai.provider.message.model.request.NoticeRequest;
 import com.kite.libai.provider.message.model.response.NoticeResponse;
@@ -18,7 +18,7 @@ import com.kite.libai.provider.message.handle.NoticeHandle;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
+import com.kite.libai.common.context.RequestContextUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import com.kite.libai.provider.message.service.NoticeRemindService;
 

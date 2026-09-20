@@ -3,8 +3,8 @@ package com.kite.libai.provider.throne.presenter;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.throne.model.entity.Permission;
 import com.kite.libai.provider.throne.model.request.CreatePermissionRequest;
 import com.kite.libai.provider.throne.model.request.UpdatePermissionRequest;
@@ -14,8 +14,7 @@ import com.kite.libai.provider.throne.service.RolePermissionService;
 
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

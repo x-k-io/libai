@@ -1,13 +1,13 @@
 package com.kite.libai.webapp.controller.app.message;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.result.Result;
 import com.kite.libai.provider.message.model.response.NoticeRemindResponse;
 import com.kite.libai.provider.message.model.response.NoticeResponse;
 import com.kite.libai.provider.message.presenter.NoticePresenter;
 import com.kite.libai.provider.message.presenter.NoticeRemindPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

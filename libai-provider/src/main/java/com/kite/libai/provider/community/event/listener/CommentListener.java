@@ -7,7 +7,7 @@ import com.kite.libai.provider.community.service.EntryService;
 import org.springframework.stereotype.Component;
 
 import com.google.common.eventbus.Subscribe;
-import com.kite.libai.core.utils.JsonUtils;
+import com.kite.libai.common.utils.JsonUtils;
 import com.kite.libai.provider.community.enums.CommentEventType;
 import com.kite.libai.provider.message.enums.NoticeType;
 import com.kite.libai.provider.message.model.dto.CommentNotice;

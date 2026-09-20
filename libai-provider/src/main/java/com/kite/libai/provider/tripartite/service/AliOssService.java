@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.PutObjectResult;
-import com.kite.libai.core.utils.DigestUtils;
+import com.kite.libai.common.utils.DigestUtils;
 import com.kite.libai.provider.account.utils.PictureUtils;
-import com.kite.libai.boot.properties.AliYunProperties;
+import com.kite.libai.core.properties.AliYunProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

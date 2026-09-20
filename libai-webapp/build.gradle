@@ -12,6 +12,7 @@ tasks.named('jar') {
 }
 
 dependencies {
+    api project(":libai-boot")
     api project(":libai-provider")
     api 'org.springframework.boot:spring-boot-starter-actuator'
     api 'io.micrometer:micrometer-registry-prometheus'

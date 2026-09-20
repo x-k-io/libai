@@ -2,8 +2,8 @@ package com.kite.libai.provider.throne.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.core.repository.MybatisBaseRepository;
+import com.kite.libai.common.result.PageResult;
 
 import org.apache.commons.lang3.StringUtils;
 import com.kite.libai.provider.throne.mapper.UserMapper;

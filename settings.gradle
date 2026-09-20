@@ -1,5 +1,6 @@
 rootProject.name = 'libai'
 include 'libai-boot'
+include 'libai-common'
 include 'libai-core'
 include 'libai-provider'
 include 'libai-webapp'

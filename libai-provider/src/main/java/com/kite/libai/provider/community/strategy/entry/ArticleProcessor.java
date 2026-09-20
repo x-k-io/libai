@@ -11,7 +11,7 @@ import com.kite.libai.provider.community.assemble.ArticleAssemble;
 import org.springframework.stereotype.Service;
 
 import org.apache.commons.collections4.CollectionUtils;
-import com.kite.libai.core.utils.ListUtils;
+import com.kite.libai.common.utils.ListUtils;
 import com.kite.libai.provider.community.enums.EntityType;
 import com.kite.libai.provider.community.model.common.ArticleSection;
 import com.kite.libai.provider.community.model.common.BaseSection;

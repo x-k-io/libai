@@ -2,8 +2,8 @@ package com.kite.libai.boot.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kite.libai.boot.annotation.IgnoreResponseAdvice;
-import com.kite.libai.core.result.PageResult;
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.result.PageResult;
+import com.kite.libai.common.result.Result;
 import lombok.AllArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -11,7 +11,6 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;

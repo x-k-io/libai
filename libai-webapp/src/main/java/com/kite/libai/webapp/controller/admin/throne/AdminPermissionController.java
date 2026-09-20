@@ -1,11 +1,11 @@
 package com.kite.libai.webapp.controller.admin.throne;
 
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.throne.model.request.CreatePermissionRequest;
 import com.kite.libai.provider.throne.model.request.UpdatePermissionRequest;
 import com.kite.libai.provider.throne.model.vo.PermissionVo;
 import com.kite.libai.provider.throne.presenter.PermissionPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;

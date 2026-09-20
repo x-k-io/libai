@@ -12,8 +12,7 @@ import com.kite.libai.provider.community.model.response.TopicResponse;
 
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.provider.community.enums.TopicCategory;
 import com.kite.libai.provider.community.service.TopicService;
 

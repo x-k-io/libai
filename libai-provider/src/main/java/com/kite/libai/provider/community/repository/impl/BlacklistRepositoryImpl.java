@@ -1,7 +1,7 @@
 package com.kite.libai.provider.community.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.community.mapper.BlacklistMapper;
 import com.kite.libai.provider.community.model.entity.Blacklist;
 import com.kite.libai.provider.community.repository.BlacklistRepository;

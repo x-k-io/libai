@@ -1,9 +1,9 @@
 package com.kite.libai.provider.account.service;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.KiteSecurityCode;
-import com.kite.libai.core.utils.RandomUtils;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.KiteSecurityCode;
+import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.provider.account.model.entity.AccountRefreshToken;
 import com.kite.libai.provider.account.repository.AccountRefreshTokenRepository;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.kite.libai.provider.message.presenter;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.message.model.response.NoticeRemindResponse;
 import com.kite.libai.provider.message.model.entity.NoticeRemind;
 import com.kite.libai.provider.message.service.NoticeRemindService;

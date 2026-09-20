@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.community.model.entity.Friend;
 import com.kite.libai.provider.community.model.entity.UserSocial;

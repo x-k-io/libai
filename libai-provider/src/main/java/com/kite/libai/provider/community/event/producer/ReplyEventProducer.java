@@ -1,6 +1,6 @@
 package com.kite.libai.provider.community.event.producer;
 
-import com.kite.libai.boot.event.core.KiteEventService;
+import com.kite.libai.core.event.core.KiteEventService;
 import com.kite.libai.provider.community.model.entity.Reply;
 import org.springframework.stereotype.Service;
 

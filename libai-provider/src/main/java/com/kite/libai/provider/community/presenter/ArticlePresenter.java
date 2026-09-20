@@ -12,7 +12,7 @@ import com.kite.libai.provider.throne.service.UserService;
 import com.kite.libai.provider.community.service.ArticleService;
 import com.kite.libai.provider.community.service.EntryService;
 import com.kite.libai.provider.throne.service.UserRoleService;
-import com.kite.libai.boot.properties.KiteLibaiProperties;
+import com.kite.libai.core.properties.KiteLibaiProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

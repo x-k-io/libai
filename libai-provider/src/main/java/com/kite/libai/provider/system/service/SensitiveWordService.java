@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
+import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.provider.system.model.entity.SensitiveWord;
 import com.kite.libai.provider.system.repository.SensitiveWordRepository;
 import org.springframework.stereotype.Service;

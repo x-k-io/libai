@@ -1,6 +1,6 @@
 package com.kite.libai.webapp.controller.admin.throne;
 
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.throne.model.entity.User;
 import com.kite.libai.provider.throne.model.request.CreateUserRequest;
 import com.kite.libai.provider.throne.model.request.UpdatePasswordRequest;
@@ -9,7 +9,7 @@ import com.kite.libai.provider.throne.model.request.UpdateUserRoleRequest;
 import com.kite.libai.provider.throne.model.request.UpdateUserStatusRequest;
 import com.kite.libai.provider.throne.model.vo.UserVo;
 import com.kite.libai.provider.throne.presenter.UserPresenter;
-import com.kite.libai.webapp.annotation.KitePermission;
+import com.kite.libai.boot.annotation.KitePermission;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

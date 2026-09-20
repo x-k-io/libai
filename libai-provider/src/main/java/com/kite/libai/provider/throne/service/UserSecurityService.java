@@ -1,8 +1,8 @@
 package com.kite.libai.provider.throne.service;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.model.KiteAccount;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.model.KiteAccount;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.account.model.request.RefreshAccessTokenRequest;

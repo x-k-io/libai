@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.assemble.TripartiteAppAssemble;
 import com.kite.libai.provider.account.model.entity.TripartiteApp;
 import com.kite.libai.provider.account.model.request.TripartiteAppRequest;

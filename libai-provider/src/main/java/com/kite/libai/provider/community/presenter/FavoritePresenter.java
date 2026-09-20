@@ -6,9 +6,8 @@ import com.kite.libai.provider.community.model.entity.Favorite;
 import com.kite.libai.provider.community.model.request.FavoriteRequest;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.provider.community.service.EntryService;
 import com.kite.libai.provider.community.service.FavoriteService;
 

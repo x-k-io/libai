@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.kite.libai.core.utils.Base64Utils;
-import com.kite.libai.core.utils.Exceptions;
+import com.kite.libai.common.utils.Base64Utils;
+import com.kite.libai.common.utils.Exceptions;
 import com.kite.libai.provider.tripartite.enums.TencentAudit;
 import com.kite.libai.provider.tripartite.response.AuditResponse;
-import com.kite.libai.boot.properties.TencentCloudProperties;
+import com.kite.libai.core.properties.TencentCloudProperties;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.ims.v20200713.ImsClient;

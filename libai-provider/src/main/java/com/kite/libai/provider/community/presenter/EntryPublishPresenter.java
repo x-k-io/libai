@@ -8,8 +8,7 @@ import com.kite.libai.provider.community.model.request.ArticleRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.SystemCode;
+import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.provider.community.enums.EntityType;
 import com.kite.libai.provider.account.service.AccountService;
 import com.kite.libai.provider.community.service.ArticleService;

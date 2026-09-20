@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.cache.LibaiRedisTemplate;
+import com.kite.libai.core.cache.LibaiRedisTemplate;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.community.assemble.EntryAssemble;
 import com.kite.libai.provider.community.model.entity.Entry;
@@ -22,7 +22,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import org.apache.commons.collections4.CollectionUtils;
-import com.kite.libai.boot.cache.CacheKeys;
+import com.kite.libai.core.cache.CacheKeys;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.account.service.AccountService;
 import com.kite.libai.provider.community.service.EntryService;

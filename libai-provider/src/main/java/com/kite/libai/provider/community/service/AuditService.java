@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kite.libai.provider.tripartite.response.AuditResponse;
 import com.kite.libai.provider.tripartite.service.TencentCloudService;
-import com.kite.libai.boot.properties.KiteLibaiProperties;
+import com.kite.libai.core.properties.KiteLibaiProperties;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;

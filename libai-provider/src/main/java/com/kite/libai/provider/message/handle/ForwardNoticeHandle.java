@@ -11,8 +11,8 @@ import com.kite.libai.provider.message.model.entity.Notice;
 import com.kite.libai.provider.message.model.response.NoticeResponse;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.utils.JsonUtils;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.utils.JsonUtils;
 import com.kite.libai.provider.message.enums.NoticeType;
 import com.kite.libai.provider.message.enums.RelationType;
 import com.kite.libai.provider.message.model.response.notice.ForwardNoticeResponse;

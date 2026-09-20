@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.kite.libai.boot.repository.BaseService;
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.core.repository.BaseService;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.community.model.entity.Reply;
 import com.kite.libai.provider.community.repository.ReplyRepository;
 import org.springframework.scheduling.annotation.Async;

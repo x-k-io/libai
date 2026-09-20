@@ -1,8 +1,8 @@
 package com.kite.libai.provider.community.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
-import com.kite.libai.core.result.PageResult;
+import com.kite.libai.core.repository.MybatisBaseRepository;
+import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.community.mapper.ReplyMapper;
 import com.kite.libai.provider.community.model.entity.Reply;
 import com.kite.libai.provider.community.repository.ReplyRepository;

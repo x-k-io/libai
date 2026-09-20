@@ -1,7 +1,7 @@
 package com.kite.libai.boot.response;
 
-import com.kite.libai.core.exception.ServiceException;
-import com.kite.libai.core.result.Result;
+import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

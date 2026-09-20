@@ -1,11 +1,11 @@
 package com.kite.libai.provider.account.presenter;
 
-import com.kite.libai.boot.cache.CacheKeys;
-import com.kite.libai.boot.cache.LibaiRedisTemplate;
-import com.kite.libai.core.context.RequestContextUtils;
-import com.kite.libai.core.utils.BeanUtils;
+import com.kite.libai.core.cache.CacheKeys;
+import com.kite.libai.core.cache.LibaiRedisTemplate;
+import com.kite.libai.common.context.RequestContextUtils;
+import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
-import com.kite.libai.core.utils.RandomUtils;
+import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.provider.account.assemble.AccountAssemble;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.account.model.request.BindMobileRequest;
@@ -27,7 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
-import com.kite.libai.core.exception.ServiceException;
+import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.provider.account.constant.KiteMomentConstant;
 import com.kite.libai.provider.account.constant.SystemNoticeTemplate;
 import com.kite.libai.provider.account.enums.AccountTypes;

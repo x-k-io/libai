@@ -1,7 +1,7 @@
 package com.kite.libai.provider.system.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.system.mapper.SensitiveWordMapper;
 import com.kite.libai.provider.system.model.entity.SensitiveWord;
 import com.kite.libai.provider.system.repository.SensitiveWordRepository;

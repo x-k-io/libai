@@ -2,7 +2,7 @@ package com.kite.libai.provider.common.repository.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.kite.libai.boot.repository.MybatisBaseRepository;
+import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.common.mapper.IdAllocMapper;
 import com.kite.libai.provider.common.model.entity.IdAlloc;
 import com.kite.libai.provider.common.repository.IdAllocRepository;
