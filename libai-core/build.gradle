@@ -1,12 +1,11 @@
 dependencies {
     api project(":libai-common")
     api "com.google.guava:guava"
-    api 'org.springframework.boot:spring-boot-starter-web'
+    api 'org.springframework.boot:spring-boot-starter'
+    api "org.springframework.boot:spring-boot-starter-validation"
     // redis
     api "org.apache.commons:commons-pool2"
     api 'org.springframework.boot:spring-boot-starter-data-redis'
-    // 密码
-    api 'org.springframework.security:spring-security-crypto'
     // mybatis
     api 'com.baomidou:mybatis-plus-spring-boot3-starter'
     api 'com.baomidou:mybatis-plus-jsqlparser'

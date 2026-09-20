@@ -1,17 +1,7 @@
 dependencies {
     api project(":libai-core")
-
-    api "com.google.guava:guava"
-    api 'org.springframework.boot:spring-boot-starter-web'
-    // redis
-    api "org.apache.commons:commons-pool2"
-    api 'org.springframework.boot:spring-boot-starter-data-redis'
-    // 密码
-    api 'org.springframework.security:spring-security-crypto'
     // pinyin
     api 'io.github.biezhi:TinyPinyin'
-    // 本地缓存
-    api 'com.github.ben-manes.caffeine:caffeine'
     // oss
     api 'com.aliyun.oss:aliyun-sdk-oss'
     // sms
@@ -19,16 +9,10 @@ dependencies {
     api 'com.aliyun:openapiutil'
     // 腾讯云
     api 'com.tencentcloudapi:tencentcloud-sdk-java'
-    // spring-boot-starter-validation
-    api "org.springframework.boot:spring-boot-starter-validation"
     // easy poi
     api 'cn.afterturn:easypoi-base'
     api 'cn.afterturn:easypoi-web'
     api 'cn.afterturn:easypoi-annotation'
-
-    api 'com.baomidou:mybatis-plus-spring-boot3-starter'
-    api 'com.alibaba:druid-spring-boot-starter'
-    api 'com.mysql:mysql-connector-j'
     // jwt
     api 'io.jsonwebtoken:jjwt-api'
     api 'io.jsonwebtoken:jjwt-impl'

@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.kite.libai.common.utils.Exceptions;
+import com.kite.libai.common.utils.PasswordUtil;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.model.entity.Account;
 import com.kite.libai.provider.account.model.request.CreateAccountRequest;
@@ -17,7 +18,6 @@ import com.kite.libai.provider.community.service.UserSocialService;
 import org.apache.commons.collections4.CollectionUtils;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.kite.libai.common.exception.ServiceException;
@@ -36,8 +36,6 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 public class AccountService {
 
-    private final PasswordEncoder passwordEncoder;
-
     private final UserSocialService userSocialService;
 
     private final AccountRepository accountRepository;
@@ -53,6 +51,7 @@ public class AccountService {
     public List<Account> batchGetByIds(List<Long> ids) {
         return accountRepository.batchGetByIds(ids);
     }
+
     /**
      * 校验用户是否被禁言
      *
@@ -163,7 +162,7 @@ public class AccountService {
     }
 
     public boolean updatePassword(Long id, String newPassword) {
-        return accountRepository.updatePassword(id, passwordEncoder.encode(newPassword));
+        return accountRepository.updatePassword(id, PasswordUtil.encode(newPassword));
     }
 
     public boolean updateStatus(Long id, String status) {
@@ -196,6 +195,6 @@ public class AccountService {
     }
 
     public boolean matches(String password, String dbPassword) {
-        return passwordEncoder.matches(password, dbPassword);
+        return PasswordUtil.matches(password, dbPassword);
     }
 }

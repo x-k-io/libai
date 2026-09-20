@@ -1,7 +1,5 @@
 dependencies {
     api project(":libai-common")
-    api "com.google.guava:guava"
     api 'org.springframework.boot:spring-boot-starter-web'
-    // jackson jsr310 日期时间模块
     api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 }

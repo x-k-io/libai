@@ -1,4 +1,5 @@
 dependencies {
+    api "at.favre.lib:bcrypt"
     api 'org.apache.commons:commons-collections4'
     api 'org.apache.commons:commons-lang3'
     api "com.squareup.okhttp3:okhttp"

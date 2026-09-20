@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.kite.libai.common.utils.PasswordUtil;
 import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.common.result.PageResult;
@@ -20,7 +21,6 @@ import com.kite.libai.provider.throne.repository.UserRepository;
 import org.apache.commons.collections4.CollectionUtils;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.kite.libai.common.exception.ServiceException;
@@ -37,8 +37,6 @@ public class UserService extends BaseService<UserRepository, User> {
 
     private static final String DEFAULT_PASSWORD = "xxx@2022";
 
-    private final PasswordEncoder passwordEncoder;
-
     public PageResult<User> pageGet(String name, Integer pageNum, Integer pageSize) {
         return this.repository.pageGet(name, pageNum, pageSize);
     }
@@ -49,7 +47,7 @@ public class UserService extends BaseService<UserRepository, User> {
             throw new ServiceException(AccountExceptionCode.KITE_USER_EXIT);
         }
         User user = BeanUtils.copy(createUserRequest, User.class);
-        user.setPassword(passwordEncoder.encode(DigestUtils.md5Hex(DEFAULT_PASSWORD)));
+        user.setPassword(PasswordUtil.encode(DigestUtils.md5Hex(DEFAULT_PASSWORD)));
         user.setStatus(AccountStatus.NORMAL.getStatus());
         return this.repository.save(user);
     }
@@ -78,7 +76,7 @@ public class UserService extends BaseService<UserRepository, User> {
             throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
         }
         String passwordMD5 = DigestUtils.md5Hex(DEFAULT_PASSWORD);
-        user.setPassword(passwordEncoder.encode(passwordMD5));
+        user.setPassword(PasswordUtil.encode(passwordMD5));
         user.setUpdateTime(LocalDateTime.now());
         return this.updateById(user);
     }
@@ -89,10 +87,10 @@ public class UserService extends BaseService<UserRepository, User> {
         if (null == user) {
             throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
         }
-        if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
+        if (!PasswordUtil.matches(request.getOldPassword(), user.getPassword())) {
             throw new ServiceException(AccountExceptionCode.KITE_OLD_PASSWORD_ERROR);
         }
-        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        user.setPassword(PasswordUtil.encode(request.getNewPassword()));
         user.setUpdateTime(LocalDateTime.now());
         return this.updateById(user);
     }

@@ -3,6 +3,7 @@ package com.kite.libai.provider.throne.service;
 import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.common.exception.ServiceException;
 import com.kite.libai.common.model.KiteAccount;
+import com.kite.libai.common.utils.PasswordUtil;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.account.model.request.RefreshAccessTokenRequest;
@@ -16,7 +17,6 @@ import com.kite.libai.provider.throne.presenter.UserPresenter;
 import com.kite.libai.provider.throne.repository.UserLoginLogRepository;
 import com.kite.libai.provider.throne.utils.UserJwtUtil;
 import lombok.AllArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -28,8 +28,6 @@ public class UserSecurityService {
     private final UserService userService;
 
     private final UserPresenter userPresenter;
-
-    private final PasswordEncoder passwordEncoder;
 
     private final UserRefreshTokenService userTokenService;
 
@@ -43,7 +41,7 @@ public class UserSecurityService {
         if (AccountStatus.LOCKED.getStatus().equals(user.getStatus())) {
             throw new ServiceException(AccountExceptionCode.KITE_USER_IS_LOCK);
         }
-        if (!passwordEncoder.matches(adminLoginRequest.getPassword(), user.getPassword())) {
+        if (!PasswordUtil.matches(adminLoginRequest.getPassword(), user.getPassword())) {
             throw new ServiceException(AccountExceptionCode.KITE_PASSWORD_ERROR);
         }
         UserRefreshToken userRefreshToken = userTokenService.createRefreshToken(user.getId());
