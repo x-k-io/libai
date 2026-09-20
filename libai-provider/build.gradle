@@ -1,20 +1,18 @@
 dependencies {
     api project(":libai-core")
     // pinyin
-    api 'io.github.biezhi:TinyPinyin'
+    implementation 'io.github.biezhi:TinyPinyin'
     // oss
-    api 'com.aliyun.oss:aliyun-sdk-oss'
+    implementation 'com.aliyun.oss:aliyun-sdk-oss'
     // sms
-    api 'com.aliyun:dysmsapi20170525'
-    api 'com.aliyun:openapiutil'
+    implementation 'com.aliyun:dysmsapi20170525'
+    implementation 'com.aliyun:openapiutil'
     // 腾讯云
-    api 'com.tencentcloudapi:tencentcloud-sdk-java'
+    implementation 'com.tencentcloudapi:tencentcloud-sdk-java'
     // easy poi
-    api 'cn.afterturn:easypoi-base'
     api 'cn.afterturn:easypoi-web'
-    api 'cn.afterturn:easypoi-annotation'
     // jwt
-    api 'io.jsonwebtoken:jjwt-api'
-    api 'io.jsonwebtoken:jjwt-impl'
-    api 'io.jsonwebtoken:jjwt-jackson'
+    implementation 'io.jsonwebtoken:jjwt-api'
+    implementation 'io.jsonwebtoken:jjwt-impl'
+    implementation 'io.jsonwebtoken:jjwt-jackson'
 }
