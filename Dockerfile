@@ -16,17 +16,14 @@ WORKDIR /app
 ARG JAR_FILE=libai-launcher/build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
-# 4. 使用 layertools 解压分层
-RUN java -Djarmode=tools -jar app.jar extract --layers --launcher --destination layers
-
-# 5. 复制解压后的各层到对应目录
-COPY --chown=spring:spring layers/dependencies/ ./
-COPY --chown=spring:spring layers/spring-boot-loader/ ./
-COPY --chown=spring:spring layers/snapshot-dependencies/ ./
-COPY --chown=spring:spring layers/application/ ./
-
-# 清理掉原始的 app.jar，只留解压后的层
-RUN rm app.jar
+# 4. 解压分层并复制到目标目录（layers 由 extract 在容器内生成，需用 cp 而非 COPY）
+RUN java -Djarmode=tools -jar app.jar extract --layers --launcher --destination layers \
+    && cp -r layers/dependencies/. ./ \
+    && cp -r layers/spring-boot-loader/. ./ \
+    && cp -r layers/snapshot-dependencies/. ./ \
+    && cp -r layers/application/. ./ \
+    && chown -R spring:spring /app \
+    && rm -rf layers app.jar
 
 USER spring
 
