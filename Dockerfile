@@ -13,11 +13,11 @@ RUN groupadd --system --gid 1001 spring \
 WORKDIR /app
 
 # 3. 接收外部编译好的 Jar 包（通过构建参数或直接 COPY）
-ARG JAR_FILE=build/libs/*.jar
+ARG JAR_FILE=libai-launcher/build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
 # 4. 使用 layertools 解压分层
-RUN java -Djarmode=layertools -jar app.jar extract --destination layers
+RUN java -Djarmode=tools -jar app.jar extract --layers --launcher --destination layers
 
 # 5. 复制解压后的各层到对应目录
 COPY --chown=spring:spring layers/dependencies/ ./

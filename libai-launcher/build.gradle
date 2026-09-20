@@ -6,6 +6,11 @@ tasks.bootJar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
+// 禁用 plain jar，只保留 Spring Boot 可执行 jar
+tasks.named('jar') {
+    enabled = false
+}
+
 dependencies {
     api project(":libai-admin")
     api project(":libai-webapp")
