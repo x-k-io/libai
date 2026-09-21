@@ -7,8 +7,6 @@ import java.io.Serializable;
 
 public class SuffixFileFilter implements FileFilter, Serializable {
 
-    private static final long serialVersionUID = -3389157631240246157L;
-
     private final String[] suffixes;
 
     public SuffixFileFilter(final String suffix) {

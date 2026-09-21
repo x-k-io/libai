@@ -8,8 +8,6 @@ import lombok.Data;
 
 @Data
 public class ExchangeBindRequest implements Serializable {
-    private static final long serialVersionUID = 1933368636932422141L;
-
     @NotBlank
     private String appCode;
 

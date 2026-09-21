@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.kite.libai.common.context.RequestContextUtils;
-import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.exception.AuthenticationException;
 import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.provider.throne.model.entity.UserRefreshToken;
@@ -39,7 +39,7 @@ public class UserRefreshTokenService {
     public UserRefreshToken refreshAccessToken(String refreshToken) {
         UserRefreshToken userRefreshToken = userRefreshTokenRepository.getByRefreshToken(refreshToken);
         if (userRefreshToken == null || LocalDateTime.now().isAfter(userRefreshToken.getExpiresTime())) {
-            throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
         userRefreshToken.setRefreshToken(RandomUtils.getUUID());
         userRefreshToken.setExpiresTime(LocalDateTime.now().plusHours(3));

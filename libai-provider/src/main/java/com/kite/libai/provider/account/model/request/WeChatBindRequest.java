@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WeChatBindRequest implements Serializable {
 
-    private static final long serialVersionUID = 1933368636932422141L;
-
     @NotBlank
     private String appCode;
 

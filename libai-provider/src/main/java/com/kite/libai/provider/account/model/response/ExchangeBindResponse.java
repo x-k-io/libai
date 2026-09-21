@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ExchangeBindResponse implements Serializable {
-
-    private static final long serialVersionUID = -6204617647073168548L;
     private String code;
 
     private String exchangeSt;

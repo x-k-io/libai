@@ -1,7 +1,7 @@
 package com.kite.libai.provider.account.service;
 
 import com.kite.libai.common.context.RequestContextUtils;
-import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.exception.AuthenticationException;
 import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.provider.account.model.entity.AccountRefreshToken;
@@ -36,7 +36,7 @@ public class AccountRefreshTokenService {
     public AccountRefreshToken refreshAccessToken(String refreshToken) {
         AccountRefreshToken accountRefreshToken = accountRefreshTokenRepository.getByRefreshToken(refreshToken);
         if (accountRefreshToken == null || LocalDateTime.now().isAfter(accountRefreshToken.getExpiresTime())) {
-            throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
         accountRefreshToken.setRefreshToken(RandomUtils.getUUID());
         accountRefreshToken.setExpiresTime(LocalDateTime.now().plusDays(90));

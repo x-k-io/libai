@@ -3,7 +3,8 @@ package com.kite.libai.boot.interceptors;
 import com.kite.libai.common.constant.KiteHeader;
 import com.kite.libai.common.context.RequestContext;
 import com.kite.libai.common.context.RequestContextHolder;
-import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.exception.AccessDeniedException;
+import com.kite.libai.common.exception.AuthenticationException;
 import com.kite.libai.common.model.KiteAccount;
 import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.common.utils.NumberUtils;
@@ -42,12 +43,12 @@ public class KiteAdminAuthInterceptor implements AsyncHandlerInterceptor {
         // 查询用户信息 判断登录是否有效
         KiteAccount kiteAccount = kiteSecurityService.getKiteUser();
         if (kiteAccount == null) {
-            throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
         requestContext.setAccount(kiteAccount);
         if (StringUtils.isNotBlank(kitePermission.value())) {
             if (CollectionUtils.isEmpty(kiteAccount.getPermissions()) || !kiteAccount.getPermissions().contains(kitePermission.value())) {
-                throw new ServiceException(KiteSecurityCode.AUTH_IS_FORBIDDEN);
+                throw new AccessDeniedException(KiteSecurityCode.AUTH_IS_FORBIDDEN);
             }
         }
         return true;

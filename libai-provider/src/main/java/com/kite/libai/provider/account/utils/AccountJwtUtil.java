@@ -1,6 +1,6 @@
 package com.kite.libai.provider.account.utils;
 
-import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.exception.AuthenticationException;
 import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.provider.account.model.entity.AccountRefreshToken;
 import com.kite.libai.provider.account.model.response.AccountTokenVo;
@@ -68,9 +68,9 @@ public class AccountJwtUtil {
                     .getPayload();
         } catch (ExpiredJwtException e) {
             // token过期异常
-            throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         } catch (Exception e) {
-            throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
     }
 

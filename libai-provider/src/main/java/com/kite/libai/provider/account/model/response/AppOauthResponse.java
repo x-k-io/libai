@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AppOauthResponse implements Serializable {
 
-    private static final long serialVersionUID = 355869130014368020L;
-
     private String code;
 
     private String sessionSt;

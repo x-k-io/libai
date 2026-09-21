@@ -90,5 +90,5 @@ public enum SystemCode implements IResultCode {
     /**
      * 中文信息描述
      */
-    final String msg;
+    final String message;
 }

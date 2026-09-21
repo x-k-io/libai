@@ -28,15 +28,10 @@ public enum AccountExceptionCode implements IResultCode {
 
     final int code;
 
-    final String msg;
-
-    AccountExceptionCode(final int code, final String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
+    final String message;
 
     AccountExceptionCode(final String msg) {
         this.code = SystemCode.SERVICE_ERROR_CODE;
-        this.msg = msg;
+        this.message = msg;
     }
 }

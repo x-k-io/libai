@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class WeChatAuthRequest implements Serializable {
 
-    private static final long serialVersionUID = 377150381098251576L;
-
     @NotBlank
     private String appCode;
 

@@ -3,7 +3,7 @@ package com.kite.libai.boot.interceptors;
 import com.kite.libai.common.constant.KiteHeader;
 import com.kite.libai.common.context.RequestContext;
 import com.kite.libai.common.context.RequestContextHolder;
-import com.kite.libai.common.exception.ServiceException;
+import com.kite.libai.common.exception.AuthenticationException;
 import com.kite.libai.common.model.KiteAccount;
 import com.kite.libai.common.result.KiteSecurityCode;
 import com.kite.libai.common.utils.NumberUtils;
@@ -40,7 +40,7 @@ public class KiteApiAuthInterceptor implements AsyncHandlerInterceptor {
         // 查询用户信息 判断登录是否有效
         KiteAccount kiteAccount = kiteSecurityService.getKiteAccount();
         if (kiteAccount == null) {
-            throw new ServiceException(KiteSecurityCode.TOKEN_IS_INVALID);
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
         requestContext.setAccount(kiteAccount);
         requestContext.setAccountId(kiteAccount.getId());

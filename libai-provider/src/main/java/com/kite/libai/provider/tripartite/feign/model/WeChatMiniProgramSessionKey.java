@@ -14,8 +14,6 @@ import lombok.ToString;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeChatMiniProgramSessionKey implements Serializable {
-    private static final long serialVersionUID = -5186608461437942057L;
-
     /**
      * 用户唯一标识
      */

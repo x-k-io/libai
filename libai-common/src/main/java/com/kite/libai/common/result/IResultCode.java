@@ -15,5 +15,5 @@ public interface IResultCode extends Serializable {
      *
      * @return desc描述
      */
-    String getMsg();
+    String getMessage();
 }
