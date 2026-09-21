@@ -18,6 +18,7 @@ public class KiteSecurityConfiguration implements WebMvcConfigurer {
     private static final List<String> EXCLUDE_PATTERNS = Arrays.asList(
             "/error",
             "/null/**",
+            "/druid/**",
             "/actuator/**",
             "/prometheus/**");
 

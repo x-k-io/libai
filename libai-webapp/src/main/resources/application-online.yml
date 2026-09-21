@@ -3,14 +3,15 @@ spring:
     url: jdbc:mysql://data.kite.com:3306/kite_luban?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: qwe@123456L
-  redis:
-    host: data.kite.com
-    port: 11008
-    password: kite@123
-    timeout: 1000
-    lettuce:
-      pool:
-        max-active: 8
-        max-wait: -1s
-        min-idle: 0
-        max-idle: 8
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+      timeout: 1000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: 500ms
+          min-idle: 0
+          max-idle: 8

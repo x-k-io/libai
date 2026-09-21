@@ -1,16 +1,13 @@
+spring:
+  output:
+    ansi:
+      enabled: DETECT
 logging:
   pattern:
     console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%thread]){magenta} %clr(%-5level) %clr(%logger{50}){cyan} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
-
-  # 开启彩色
-  output:
-    ansi:
-      enabled: ALWAYS
-
   file:
     name: ./logs/libai.log
-
   logback:
     rollingpolicy:
       file-name-pattern: ./logs/history/libai-%d{yyyy-MM-dd}-%i.log.gz

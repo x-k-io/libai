@@ -65,7 +65,7 @@ subprojects {
         dependencies {
             dependency "com.baomidou:mybatis-plus-spring-boot3-starter:$mybatisPlusVersion"
             dependency "com.baomidou:mybatis-plus-jsqlparser:$mybatisPlusVersion"
-            dependency "com.alibaba:druid-spring-boot-starter:$druidVersion"
+            dependency "com.alibaba:druid-spring-boot-3-starter:$druidVersion"
             dependency "com.aliyun.oss:aliyun-sdk-oss:$aliOssVersion"
             dependency "com.tencentcloudapi:tencentcloud-sdk-java:$tencentSdkVersion"
             dependency "cn.afterturn:easypoi-base:$easypoiVersion"
