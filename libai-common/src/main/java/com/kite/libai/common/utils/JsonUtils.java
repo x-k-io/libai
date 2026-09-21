@@ -1,21 +1,17 @@
 package com.kite.libai.common.utils;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.TreeNode;
-import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.type.CollectionLikeType;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.kite.libai.common.function.CheckedConsumer;
-import com.kite.libai.common.jackson.KiteJavaTimeModule;
-import com.kite.libai.common.jackson.KiteLongToStringModule;
+import com.kite.libai.common.jackson.KiteObjectMapperFactory;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +22,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -41,6 +36,7 @@ import java.util.Objects;
 @UtilityClass
 public class JsonUtils {
 
+    private static final ObjectMapper objectMapper = KiteObjectMapperFactory.getObjectMapper();
 
     /**
      * 将对象序列化成json字符串
@@ -53,7 +49,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().writeValueAsString(object);
+            return objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             throw Exceptions.unchecked(e);
         }
@@ -70,7 +66,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().writeValueAsBytes(object);
+            return objectMapper.writeValueAsBytes(object);
         } catch (JsonProcessingException e) {
             throw Exceptions.unchecked(e);
         }
@@ -85,7 +81,7 @@ public class JsonUtils {
     public static JsonNode readTree(String jsonString) {
         Objects.requireNonNull(jsonString, "jsonString is null");
         try {
-            return getInstance().readTree(jsonString);
+            return objectMapper.readTree(jsonString);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -100,7 +96,7 @@ public class JsonUtils {
     public static JsonNode readTree(InputStream in) {
         Objects.requireNonNull(in, "InputStream in is null");
         try {
-            return getInstance().readTree(in);
+            return objectMapper.readTree(in);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -115,7 +111,7 @@ public class JsonUtils {
     public static JsonNode readTree(byte[] content) {
         Objects.requireNonNull(content, "byte[] content is null");
         try {
-            return getInstance().readTree(content);
+            return objectMapper.readTree(content);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -130,7 +126,7 @@ public class JsonUtils {
     public static JsonNode readTree(JsonParser jsonParser) {
         Objects.requireNonNull(jsonParser, "jsonParser is null");
         try {
-            return getInstance().readTree(jsonParser);
+            return objectMapper.readTree(jsonParser);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -149,7 +145,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(content, valueType);
+            return objectMapper.readValue(content, valueType);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -168,7 +164,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(jsonString, valueType);
+            return objectMapper.readValue(jsonString, valueType);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -187,7 +183,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(in, valueType);
+            return objectMapper.readValue(in, valueType);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -206,7 +202,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(content, typeReference);
+            return objectMapper.readValue(content, typeReference);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -225,7 +221,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(jsonString, typeReference);
+            return objectMapper.readValue(jsonString, typeReference);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -244,7 +240,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(in, typeReference);
+            return objectMapper.readValue(in, typeReference);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -263,7 +259,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(content, javaType);
+            return objectMapper.readValue(content, javaType);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -282,7 +278,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(jsonString, javaType);
+            return objectMapper.readValue(jsonString, javaType);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -301,7 +297,7 @@ public class JsonUtils {
             return null;
         }
         try {
-            return getInstance().readValue(in, javaType);
+            return objectMapper.readValue(in, javaType);
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -325,7 +321,7 @@ public class JsonUtils {
      * @return MapType
      */
     public static MapType getMapType(Class<?> keyClass, Class<?> valueClass) {
-        return getInstance().getTypeFactory().constructMapType(Map.class, keyClass, valueClass);
+        return objectMapper.getTypeFactory().constructMapType(Map.class, keyClass, valueClass);
     }
 
     /**
@@ -335,7 +331,7 @@ public class JsonUtils {
      * @return CollectionLikeType
      */
     public static CollectionLikeType getListType(Class<?> elementClass) {
-        return getInstance().getTypeFactory().constructCollectionLikeType(List.class, elementClass);
+        return objectMapper.getTypeFactory().constructCollectionLikeType(List.class, elementClass);
     }
 
     /**
@@ -347,7 +343,7 @@ public class JsonUtils {
      * @return JavaType
      */
     public static JavaType getParametricType(Class<?> parametrized, Class<?>... parameterClasses) {
-        return getInstance().getTypeFactory().constructParametricType(parametrized, parameterClasses);
+        return objectMapper.getTypeFactory().constructParametricType(parametrized, parameterClasses);
     }
 
     /**
@@ -363,7 +359,7 @@ public class JsonUtils {
             return Collections.emptyList();
         }
         try {
-            return getInstance().readValue(content, getListType(elementClass));
+            return objectMapper.readValue(content, getListType(elementClass));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -382,7 +378,7 @@ public class JsonUtils {
             return Collections.emptyList();
         }
         try {
-            return getInstance().readValue(content, getListType(elementClass));
+            return objectMapper.readValue(content, getListType(elementClass));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -401,7 +397,7 @@ public class JsonUtils {
             return Collections.emptyList();
         }
         try {
-            return getInstance().readValue(content, getListType(elementClass));
+            return objectMapper.readValue(content, getListType(elementClass));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -488,7 +484,7 @@ public class JsonUtils {
             return Collections.emptyMap();
         }
         try {
-            return getInstance().readValue(content, getMapType(keyClass, valueClass));
+            return objectMapper.readValue(content, getMapType(keyClass, valueClass));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -509,7 +505,7 @@ public class JsonUtils {
             return Collections.emptyMap();
         }
         try {
-            return getInstance().readValue(content, getMapType(keyClass, valueClass));
+            return objectMapper.readValue(content, getMapType(keyClass, valueClass));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -530,7 +526,7 @@ public class JsonUtils {
             return Collections.emptyMap();
         }
         try {
-            return getInstance().readValue(content, getMapType(keyClass, valueClass));
+            return objectMapper.readValue(content, getMapType(keyClass, valueClass));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
         }
@@ -545,7 +541,7 @@ public class JsonUtils {
      * @return 转换结果
      */
     public static <T> T convertValue(Object fromValue, Class<T> toValueType) {
-        return getInstance().convertValue(fromValue, toValueType);
+        return objectMapper.convertValue(fromValue, toValueType);
     }
 
     /**
@@ -557,7 +553,7 @@ public class JsonUtils {
      * @return 转换结果
      */
     public static <T> T convertValue(Object fromValue, JavaType toValueType) {
-        return getInstance().convertValue(fromValue, toValueType);
+        return objectMapper.convertValue(fromValue, toValueType);
     }
 
     /**
@@ -569,7 +565,7 @@ public class JsonUtils {
      * @return 转换结果
      */
     public static <T> T convertValue(Object fromValue, TypeReference<T> toValueTypeRef) {
-        return getInstance().convertValue(fromValue, toValueTypeRef);
+        return objectMapper.convertValue(fromValue, toValueTypeRef);
     }
 
     /**
@@ -585,7 +581,6 @@ public class JsonUtils {
             return null;
         }
         try {
-            ObjectMapper objectMapper = getInstance();
             return objectMapper.readValue(jsonString, objectMapper.getTypeFactory().constructType(type));
         } catch (IOException e) {
             throw Exceptions.unchecked(e);
@@ -607,7 +602,6 @@ public class JsonUtils {
             return list;
         }
         try {
-            ObjectMapper objectMapper = getInstance();
             for (String jsonString : jsonStrings) {
                 if (StringUtils.isBlank(jsonString)) {
                     continue;
@@ -631,7 +625,7 @@ public class JsonUtils {
      */
     public static <T> T treeToValue(TreeNode treeNode, Class<T> valueType) {
         try {
-            return getInstance().treeToValue(treeNode, valueType);
+            return objectMapper.treeToValue(treeNode, valueType);
         } catch (JsonProcessingException e) {
             throw Exceptions.unchecked(e);
         }
@@ -645,7 +639,7 @@ public class JsonUtils {
      * @return JsonNode
      */
     public static <T extends JsonNode> T valueToTree(Object fromValue) {
-        return getInstance().valueToTree(fromValue);
+        return objectMapper.valueToTree(fromValue);
     }
 
     /**
@@ -659,7 +653,7 @@ public class JsonUtils {
         if (value == null) {
             return true;
         }
-        return getInstance().canSerialize(value.getClass());
+        return objectMapper.canSerialize(value.getClass());
     }
 
     /**
@@ -670,7 +664,7 @@ public class JsonUtils {
      * @return 是否可以反序列化
      */
     public static boolean canDeserialize(JavaType type) {
-        return getInstance().canDeserialize(type);
+        return objectMapper.canDeserialize(type);
     }
 
     /**
@@ -720,7 +714,7 @@ public class JsonUtils {
      * @return 是否合法
      */
     public static boolean isValidJson(CheckedConsumer<ObjectMapper> consumer) {
-        ObjectMapper mapper = new JacksonObjectMapper();
+        ObjectMapper mapper = KiteObjectMapperFactory.getValidJsonObjectMapper();
         mapper.enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS);
         mapper.enable(DeserializationFeature.FAIL_ON_READING_DUP_TREE_KEY);
         try {
@@ -731,46 +725,4 @@ public class JsonUtils {
         }
     }
 
-    /**
-     * 获取 ObjectMapper 实例
-     *
-     * @return ObjectMapper
-     */
-    public static ObjectMapper getInstance() {
-        return JacksonHolder.INSTANCE;
-    }
-
-    private static class JacksonHolder {
-        private static final ObjectMapper INSTANCE = new JacksonObjectMapper();
-    }
-
-    private static class JacksonObjectMapper extends ObjectMapper {
-        private static final KiteJavaTimeModule KITE_JAVA_TIME_MODULE = new KiteJavaTimeModule();
-        private static final KiteLongToStringModule KITE_LONG_TO_STRING_MODULE = new KiteLongToStringModule();
-
-        private static final Locale CHINA = Locale.CHINA;
-
-        JacksonObjectMapper() {
-            super(jsonFactory());
-            super.setLocale(CHINA);
-            // 忽略未知字段
-            super.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            // 空Bean不抛异常
-            super.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-            // Java8时间模块
-            registerModule(KITE_JAVA_TIME_MODULE);
-            // Long 转 String
-            registerModule(KITE_LONG_TO_STRING_MODULE);
-            super.findAndRegisterModules();
-        }
-
-        private static JsonFactory jsonFactory() {
-            return JsonFactory.builder()
-                    // 可解析反斜杠引用的所有字符
-                    .configure(JsonReadFeature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER, true)
-                    // 允许JSON字符串包含未转义控制字符（内部系统兼容）
-                    .configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS, true)
-                    .build();
-        }
-    }
 }
