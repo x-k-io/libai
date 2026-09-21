@@ -1,8 +1,8 @@
 package com.kite.libai.boot.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kite.libai.boot.jackson.KiteJavaTimeModule;
-import com.kite.libai.boot.jackson.KiteLongToStringModule;
+import com.kite.libai.common.jackson.KiteJavaTimeModule;
+import com.kite.libai.common.jackson.KiteLongToStringModule;
 import com.kite.libai.common.utils.DateUtils;
 import com.kite.libai.common.utils.JsonUtils;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;

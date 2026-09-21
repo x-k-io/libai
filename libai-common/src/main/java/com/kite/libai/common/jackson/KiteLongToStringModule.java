@@ -1,4 +1,4 @@
-package com.kite.libai.boot.jackson;
+package com.kite.libai.common.jackson;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
