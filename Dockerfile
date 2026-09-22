@@ -13,7 +13,7 @@ RUN groupadd --system --gid 1001 spring \
 WORKDIR /app
 
 # 3. 接收外部编译好的 Jar 包（通过构建参数或直接 COPY）
-ARG JAR_FILE=libai-launcher/build/libs/*.jar
+ARG JAR_FILE=libai-webapp/build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
 # 4. 解压分层并复制到目标目录（layers 由 extract 在容器内生成，需用 cp 而非 COPY）
