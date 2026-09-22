@@ -5,7 +5,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -132,8 +132,7 @@ public class PictureUtils {
                         "38,157,128", "201,138,131", "220,162,151", "137,157,192", "175,215,237", "92,167,186",
                         "255,66,93", "147,224,255", "247,68,97", "185,227,217"};
         int len = beautifulColors.length;
-        Random random = new Random();
-        String[] color = beautifulColors[random.nextInt(len)].split(",");
+        String[] color = beautifulColors[ThreadLocalRandom.current().nextInt(len)].split(",");
         return new Color(Integer.parseInt(color[0]), Integer.parseInt(color[1]),
                 Integer.parseInt(color[2]));
     }

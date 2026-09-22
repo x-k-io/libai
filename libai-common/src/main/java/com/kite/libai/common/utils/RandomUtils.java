@@ -1,6 +1,5 @@
 package com.kite.libai.common.utils;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
@@ -16,11 +15,10 @@ public class RandomUtils {
         if (count == 0) {
             return StringPool.EMPTY;
         }
-        final Random random = Holder.SECURE_RANDOM;
         char[] buffer = new char[count];
         for (int i = 0; i < count; i++) {
             String factor = randomType.getFactor();
-            buffer[i] = factor.charAt(random.nextInt(factor.length()));
+            buffer[i] = factor.charAt(ThreadLocalRandom.current().nextInt(factor.length()));
         }
         return new String(buffer);
     }

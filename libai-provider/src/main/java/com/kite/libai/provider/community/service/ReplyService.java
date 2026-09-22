@@ -63,6 +63,6 @@ public class ReplyService extends BaseService<ReplyRepository, Reply> {
     }
 
     public PageResult<Reply> pageGetByCommentId(Long commentId, int pageNum, int pageSize) {
-            return null;
+            return this.repository.pageGetByCommentId(commentId, pageNum, pageSize);
     }
 }

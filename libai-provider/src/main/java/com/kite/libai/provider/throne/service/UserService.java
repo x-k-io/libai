@@ -8,6 +8,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.kite.libai.common.utils.PasswordUtil;
+import com.kite.libai.common.utils.RandomType;
+import com.kite.libai.common.utils.RandomUtils;
 import com.kite.libai.core.repository.BaseService;
 import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.common.result.PageResult;
@@ -35,8 +37,6 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class UserService extends BaseService<UserRepository, User> {
 
-    private static final String DEFAULT_PASSWORD = "xxx@2022";
-
     public PageResult<User> pageGet(String name, Integer pageNum, Integer pageSize) {
         return this.repository.pageGet(name, pageNum, pageSize);
     }
@@ -47,7 +47,9 @@ public class UserService extends BaseService<UserRepository, User> {
             throw new ServiceException(AccountExceptionCode.KITE_USER_EXIT);
         }
         User user = BeanUtils.copy(createUserRequest, User.class);
-        user.setPassword(PasswordUtil.encode(DigestUtils.md5Hex(DEFAULT_PASSWORD)));
+        String newPassword = RandomUtils.random(16, RandomType.ALL);
+        log.info("create newPassword: {}", newPassword);
+        user.setPassword(PasswordUtil.encode(DigestUtils.md5Hex("newPassword")));
         user.setStatus(AccountStatus.NORMAL.getStatus());
         return this.repository.insert(user);
     }
@@ -75,7 +77,9 @@ public class UserService extends BaseService<UserRepository, User> {
         if (user == null) {
             throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
         }
-        String passwordMD5 = DigestUtils.md5Hex(DEFAULT_PASSWORD);
+        String newPassword = RandomUtils.random(16, RandomType.ALL);
+        log.info("resetPassword newPassword: {}", newPassword);
+        String passwordMD5 = DigestUtils.md5Hex(newPassword);
         user.setPassword(PasswordUtil.encode(passwordMD5));
         user.setUpdateTime(LocalDateTime.now());
         return this.updateById(user);

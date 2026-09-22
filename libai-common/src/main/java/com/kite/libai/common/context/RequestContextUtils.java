@@ -1,7 +1,9 @@
 package com.kite.libai.common.context;
 
 
+import com.kite.libai.common.exception.AuthenticationException;
 import com.kite.libai.common.model.KiteAccount;
+import com.kite.libai.common.result.KiteSecurityCode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
@@ -105,7 +107,7 @@ public class RequestContextUtils {
     public static Long getAccountId() {
         KiteAccount account = getAccount();
         if (account == null) {
-            return null;
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
         return account.getId();
     }
@@ -114,7 +116,7 @@ public class RequestContextUtils {
     public static String getAccountName() {
         KiteAccount account = getAccount();
         if (account == null) {
-            return null;
+            throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
         return account.getName();
     }

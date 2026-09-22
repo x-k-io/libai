@@ -59,9 +59,15 @@ public class WeChatPresenter {
         String res = weChatRemoteService.code2session(tripartiteApp.getAppId(), tripartiteApp.getAppSecret(),
                 appOauthRequest.getCode(),
                 "authorization_code");
+        if(StringUtils.isBlank(res)){
+            return Result.fail("调用微信授权接口失败");
+        }
         WeChatMiniProgramSessionKey sessionKey = JsonUtils.parse(res, WeChatMiniProgramSessionKey.class);
         log.info("WeChatMiniProgramController miniOauth===> code:{}, sessionKey:{}", appOauthRequest.getCode(),
                 sessionKey);
+        if (null == sessionKey) {
+            return Result.fail("调用微信授权接口失败");
+        }
         int errCode = sessionKey.getErrcode();
         if (WeChatStatusCode.CODE_INVALID_CODE == errCode) {
             return Result.fail("微信code无效");

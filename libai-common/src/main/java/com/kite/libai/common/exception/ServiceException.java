@@ -51,7 +51,7 @@ public class ServiceException extends RuntimeException {
      * @return Throwable
      */
     @Override
-    public Throwable fillInStackTrace() {
+    public synchronized Throwable fillInStackTrace() {
         return this;
     }
 

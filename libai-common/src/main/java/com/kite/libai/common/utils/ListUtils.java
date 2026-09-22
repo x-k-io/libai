@@ -3,7 +3,6 @@ package com.kite.libai.common.utils;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.collections4.CollectionUtils;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,12 +11,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @UtilityClass
 public class ListUtils {
-
     /**
      * 创建一个空ArrayList
      *
@@ -163,8 +162,7 @@ public class ListUtils {
         if (CollectionUtils.isEmpty(list)) {
             return null;
         }
-        final Random random = new SecureRandom();
-        int n = random.nextInt(list.size());
+        int n = ThreadLocalRandom.current().nextInt(list.size());
         return list.get(n);
     }
 
@@ -181,9 +179,8 @@ public class ListUtils {
         if (CollectionUtils.isEmpty(list)) {
             return result;
         }
-        final Random random = new SecureRandom();
         for (int i = 0; i < count; i++) {
-            int n = random.nextInt(list.size());
+            int n = ThreadLocalRandom.current().nextInt(list.size());
             result.add(list.get(n));
         }
         return result;

@@ -92,6 +92,6 @@ public class FriendService extends BaseService<FriendRepository, Friend> {
     }
 
     public PageResult<Friend> pageGetFollowing(Long accountId, int pageNum, int pageSize) {
-        return null;
+        return this.repository.pageGetFollowing(accountId, pageNum, pageSize);
     }
 }

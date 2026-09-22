@@ -27,7 +27,7 @@ public class RsaUtils {
      * 数字签名，密钥算法
      */
     public static final String RSA_ALGORITHM = "RSA";
-    public static final String RSA_PADDING = "RSA/ECB/PKCS1Padding";
+    public static final String RSA_PADDING = "RSA/ECB/OAEPWithSHA-256AndMGF1Padding";
 
     /**
      * 获取 KeyPair

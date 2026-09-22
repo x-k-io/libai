@@ -34,6 +34,9 @@ public class KiteBusAutoConfiguration {
     @Bean
     AsyncEventBus asyncEventBus() {
         log.info("初始化异步事件总线==>线程池配置:{}", JsonUtils.toJson(executorProperties));
+        if (executorProperties == null) {
+            throw new IllegalStateException("KiteEventExecutorProperties configuration cannot be null");
+        }
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("kite-event-bus-pool-%d").build();
         ExecutorService pool =
