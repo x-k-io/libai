@@ -26,7 +26,6 @@ public class AdminSecurityController {
 
     private final UserSecurityService userSecurityService;
 
-
     @PostMapping("/login")
     public UserTokenVo adminLogin(@Valid @RequestBody AdminLoginRequest loginRequest) {
         return userSecurityService.adminLogin(loginRequest);
