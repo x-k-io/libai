@@ -15,4 +15,3 @@ jobs:
     secrets: inherit
     with:
       image_name: ${{ github.repository }}
-      sonar_enabled: true
