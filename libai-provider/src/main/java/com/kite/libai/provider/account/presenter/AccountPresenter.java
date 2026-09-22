@@ -2,7 +2,6 @@ package com.kite.libai.provider.account.presenter;
 
 import com.kite.libai.core.cache.CacheKeys;
 import com.kite.libai.core.cache.LibaiRedisTemplate;
-import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.common.utils.RandomUtils;
@@ -121,8 +120,8 @@ public class AccountPresenter {
         return response;
     }
 
-    public Boolean updatePassword(UpdatePasswordRequest request) {
-        Account account = accountService.getById(RequestContextUtils.getAccountId());
+    public Boolean updatePassword(Long accountId, UpdatePasswordRequest request) {
+        Account account = accountService.getById(accountId);
         if (account == null) {
             throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
         }
@@ -133,8 +132,8 @@ public class AccountPresenter {
         return accountService.updatePassword(account.getId(), request.getNewPassword());
     }
 
-    public String genUpdateMobileTicket(GenUpdateMobileTicketRequest request) {
-        Account account = accountService.getById(RequestContextUtils.getAccountId());
+    public String genUpdateMobileTicket(Long accountId, GenUpdateMobileTicketRequest request) {
+        Account account = accountService.getById(accountId);
         if (account == null) {
             throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
         }
@@ -144,8 +143,8 @@ public class AccountPresenter {
         return ticket;
     }
 
-    public boolean bindMobile(BindMobileRequest request) {
-        Account account = accountService.getById(RequestContextUtils.getAccountId());
+    public boolean bindMobile(Long accountId, BindMobileRequest request) {
+        Account account = accountService.getById(accountId);
         if (account == null) {
             throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
         }

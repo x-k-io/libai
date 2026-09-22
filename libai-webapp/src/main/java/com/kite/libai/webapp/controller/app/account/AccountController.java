@@ -47,19 +47,22 @@ public class AccountController {
     @KitePermission
     @PutMapping(value = "/updatePassword")
     public Boolean updatePassword(@Valid @RequestBody UpdatePasswordRequest request) {
-        return accountPresenter.updatePassword(request);
+        Long accountId = RequestContextUtils.getAccountId();
+        return accountPresenter.updatePassword(accountId, request);
     }
 
     @KitePermission
     @PutMapping(value = "/genUpdateMobileTicket")
     public String genUpdateMobileTicket(@Valid @RequestBody GenUpdateMobileTicketRequest request) {
-        return accountPresenter.genUpdateMobileTicket(request);
+        Long accountId = RequestContextUtils.getAccountId();
+        return accountPresenter.genUpdateMobileTicket(accountId, request);
     }
 
     @KitePermission
     @PutMapping(value = "/bindMobile")
     public Boolean bindMobile(@Valid @RequestBody BindMobileRequest request) {
-        return accountPresenter.bindMobile(request);
+        Long accountId = RequestContextUtils.getAccountId();
+        return accountPresenter.bindMobile(accountId, request);
     }
 
     @KitePermission
