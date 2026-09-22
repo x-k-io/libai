@@ -49,7 +49,7 @@ public class UserService extends BaseService<UserRepository, User> {
         User user = BeanUtils.copy(createUserRequest, User.class);
         user.setPassword(PasswordUtil.encode(DigestUtils.md5Hex(DEFAULT_PASSWORD)));
         user.setStatus(AccountStatus.NORMAL.getStatus());
-        return this.repository.save(user);
+        return this.repository.insert(user);
     }
 
     public boolean update(UpdateUserRequest request) {

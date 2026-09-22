@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface BaseRepository<T> {
 
-    boolean save(T entity);
+    boolean insert(T entity);
 
-    boolean saveBatch(Collection<T> entityList);
+    boolean insert(Collection<T> entityList);
 
-    boolean saveBatch(Collection<T> entityList, int batchSize);
+    boolean insert(Collection<T> entityList, int batchSize);
 
-    boolean saveOrUpdateBatch(Collection<T> entityList);
+    boolean insertOrUpdate(Collection<T> entityList);
 
-    boolean saveOrUpdateBatch(Collection<T> entityList, int batchSize);
+    boolean insertOrUpdate(Collection<T> entityList, int batchSize);
 
     boolean deleteById(Serializable id);
 
@@ -23,11 +23,11 @@ public interface BaseRepository<T> {
 
     boolean updateById(T entity);
 
-    boolean updateBatchById(Collection<T> entityList);
+    boolean updateById(Collection<T> entityList);
 
-    boolean updateBatchById(Collection<T> entityList, int batchSize);
+    boolean updateById(Collection<T> entityList, int batchSize);
 
-    boolean saveOrUpdate(T entity);
+    boolean insertOrUpdate(T entity);
 
     T getById(Serializable id);
 

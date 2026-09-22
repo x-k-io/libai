@@ -66,7 +66,7 @@ public class CommentPresenter {
             comment.setAuthored(Boolean.TRUE);
         }
         // 创建评论
-        commentService.save(comment);
+        commentService.insert(comment);
         // 发送评论创建事件
         commentEventProducer.sendCreateCommentEvent(comment);
         return commentAssemble.toResponse(comment);

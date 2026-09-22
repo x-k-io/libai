@@ -139,6 +139,6 @@ public class AccountSecurityService {
         accountLoginLog.setUserAgent(RequestContextUtils.getUserAgent());
         accountLoginLog.setLoginTime(accountRefreshToken.getLoginTime());
         accountLoginLog.setCreateTime(accountLoginLog.getLoginTime());
-        loginLogRepository.save(accountLoginLog);
+        loginLogRepository.insert(accountLoginLog);
     }
 }

@@ -32,7 +32,7 @@ public class ProhibitedWordPresenter {
     public boolean create(ProhibitedWordRequest prohibitedWordRequest) {
         ProhibitedWord prohibitedWord = BeanUtils.copy(prohibitedWordRequest, ProhibitedWord.class);
         prohibitedWord.setStatus(Boolean.TRUE);
-        return prohibitedWordService.save(prohibitedWord);
+        return prohibitedWordService.insert(prohibitedWord);
     }
 
 
@@ -52,7 +52,7 @@ public class ProhibitedWordPresenter {
                     prohibitedWord.setStatus(Boolean.TRUE);
                     return prohibitedWord;
                 }).collect(Collectors.toList());
-        return prohibitedWordService.saveBatch(prohibitedWords);
+        return prohibitedWordService.insert(prohibitedWords);
     }
 
 

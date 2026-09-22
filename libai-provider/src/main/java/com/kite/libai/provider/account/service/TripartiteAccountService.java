@@ -23,7 +23,7 @@ public class TripartiteAccountService {
     private final TripartiteAccountRepository tripartiteAccountRepository;
 
     public boolean save(TripartiteAccount tripartiteAccount) {
-        return tripartiteAccountRepository.save(tripartiteAccount);
+        return tripartiteAccountRepository.insert(tripartiteAccount);
     }
 
     public boolean updateById(TripartiteAccount tripartiteAccount) {

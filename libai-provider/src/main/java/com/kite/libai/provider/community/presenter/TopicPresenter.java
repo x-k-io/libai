@@ -45,7 +45,7 @@ public class TopicPresenter {
         topic.setIcon(request.getIcon());
         topic.setDescription(request.getDescription());
         topic.setOrders(System.currentTimeMillis());
-        return topicService.save(topic);
+        return topicService.insert(topic);
     }
 
     /**
@@ -63,7 +63,7 @@ public class TopicPresenter {
         topic.setCategory(TopicCategory.OTHER.getCode());
         topic.setName(name);
         topic.setOrders(System.currentTimeMillis());
-        return topicService.save(topic);
+        return topicService.insert(topic);
     }
 
     /**

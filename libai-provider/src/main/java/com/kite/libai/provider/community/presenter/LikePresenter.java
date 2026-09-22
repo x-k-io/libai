@@ -37,7 +37,7 @@ public class LikePresenter {
         like.setEntityType(request.getEntityType());
         like.setEntityId(request.getEntityId());
         like.setEntryId(request.getEntryId());
-        boolean temp = likeService.save(like);
+        boolean temp = likeService.insert(like);
         // 发送点赞事件
         likeEventProducer.sendLikeEvent(like);
         return temp;

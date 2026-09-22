@@ -10,24 +10,16 @@ public class BaseService<R extends BaseRepository<T>, T> {
     @Autowired
     protected R repository;
 
-    public boolean save(T entity) {
-        return repository.save(entity);
+    public boolean insert(T entity) {
+        return repository.insert(entity);
     }
 
-    public boolean saveBatch(Collection<T> entityList) {
-        return repository.saveBatch(entityList);
+    public boolean insert(Collection<T> entityList) {
+        return repository.insert(entityList);
     }
 
-    public boolean saveBatch(Collection<T> entityList, int batchSize) {
-        return repository.saveBatch(entityList, batchSize);
-    }
-
-    public boolean saveOrUpdateBatch(Collection<T> entityList) {
-        return repository.saveOrUpdateBatch(entityList);
-    }
-
-    public boolean saveOrUpdateBatch(Collection<T> entityList, int batchSize) {
-        return repository.saveOrUpdateBatch(entityList, batchSize);
+    public boolean insert(Collection<T> entityList, int batchSize) {
+        return repository.insert(entityList, batchSize);
     }
 
     public boolean deleteById(Serializable id) {
@@ -42,16 +34,16 @@ public class BaseService<R extends BaseRepository<T>, T> {
         return repository.updateById(entity);
     }
 
-    public boolean updateBatchById(Collection<T> entityList) {
-        return repository.updateBatchById(entityList);
+    public boolean updateById(Collection<T> entityList) {
+        return repository.updateById(entityList);
     }
 
-    public boolean updateBatchById(Collection<T> entityList, int batchSize) {
-        return repository.updateBatchById(entityList, batchSize);
+    public boolean updateById(Collection<T> entityList, int batchSize) {
+        return repository.updateById(entityList, batchSize);
     }
 
-    public boolean saveOrUpdate(T entity) {
-        return repository.saveOrUpdate(entity);
+    public boolean insertOrUpdate(T entity) {
+        return repository.insertOrUpdate(entity);
     }
 
     public T getById(Serializable id) {

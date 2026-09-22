@@ -32,7 +32,7 @@ public class SensitiveWordPresenter {
     public boolean create(SensitiveWordRequest sensitiveWordRequest) {
         SensitiveWord sensitiveWord = BeanUtils.copy(sensitiveWordRequest, SensitiveWord.class);
         sensitiveWord.setStatus(Boolean.FALSE);
-        return sensitiveWordService.save(sensitiveWord);
+        return sensitiveWordService.insert(sensitiveWord);
     }
 
 
@@ -52,7 +52,7 @@ public class SensitiveWordPresenter {
                     sensitiveWord.setStatus(Boolean.TRUE);
                     return sensitiveWord;
                 }).collect(Collectors.toList());
-        return sensitiveWordService.saveBatch(sensitiveWords);
+        return sensitiveWordService.insert(sensitiveWords);
     }
 
     /**

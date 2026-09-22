@@ -37,7 +37,7 @@ public class EntryService extends BaseService<EntryRepository, Entry> {
     public boolean createEntry(Entry entry) {
         // 初始化默认值
         initEntry(entry);
-        return this.save(entry);
+        return this.insert(entry);
     }
 
     /**

@@ -36,7 +36,7 @@ public class PermissionPresenter {
         Permission permission = BeanUtils.copy(request, Permission.class);
         permission.setUpdateTime(LocalDateTime.now());
         permission.setCreateTime(LocalDateTime.now());
-        return permissionService.save(permission);
+        return permissionService.insert(permission);
 
     }
 

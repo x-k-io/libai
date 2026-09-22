@@ -51,7 +51,7 @@ public class RolePresenter {
         role.setDescription(request.getDescription());
         role.setCreateTime(LocalDateTime.now());
         role.setUpdateTime(LocalDateTime.now());
-        return roleService.save(role);
+        return roleService.insert(role);
     }
 
     public boolean updateById(UpdateRoleRequest request) {
@@ -115,11 +115,11 @@ public class RolePresenter {
         }
         List<RolePermission> rolePermissions = rolePermissionService.getByRoleId(roleId);
         // 已存在的权限
-        List<Long> existPermissionIds = rolePermissions.stream().map(RolePermission::getPermissionId).collect(Collectors.toList());
+        List<Long> existPermissionIds = rolePermissions.stream().map(RolePermission::getPermissionId).toList();
         // 需要删除的权限
-        List<Long> needDeleteIds = rolePermissions.stream().filter(x -> !permissionIds.contains(x.getPermissionId())).map(RolePermission::getId).collect(Collectors.toList());
+        List<Long> needDeleteIds = rolePermissions.stream().filter(x -> !permissionIds.contains(x.getPermissionId())).map(RolePermission::getId).toList();
         // 需要添加的权限
-        List<Long> needAddPermissionIds = permissionIds.stream().filter(permissionId -> !existPermissionIds.contains(permissionId)).collect(Collectors.toList());
+        List<Long> needAddPermissionIds = permissionIds.stream().filter(permissionId -> !existPermissionIds.contains(permissionId)).toList();
         rolePermissionService.deleteByIds(needDeleteIds);
         List<RolePermission> newRolePermissions = needAddPermissionIds.stream().map(permissionId -> {
             RolePermission rolePermission = new RolePermission();
@@ -128,7 +128,7 @@ public class RolePresenter {
             rolePermission.setCreateTime(LocalDateTime.now());
             return rolePermission;
         }).collect(Collectors.toList());
-        return rolePermissionService.saveBatch(newRolePermissions);
+        return rolePermissionService.insert(newRolePermissions);
     }
 
     public PageResult<RoleVo> pageGet(String name, Integer pageNum, Integer pageSize) {

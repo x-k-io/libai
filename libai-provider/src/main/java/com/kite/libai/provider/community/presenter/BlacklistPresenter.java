@@ -47,7 +47,7 @@ public class BlacklistPresenter {
         Blacklist blacklist = new Blacklist();
         blacklist.setAccountId(accountId);
         blacklist.setTheirId(theirId);
-        blacklistService.save(blacklist);
+        blacklistService.insert(blacklist);
     }
 
     public void cancel(Long accountId, Long theirId) {

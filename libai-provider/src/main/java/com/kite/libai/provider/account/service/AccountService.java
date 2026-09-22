@@ -109,7 +109,7 @@ public class AccountService {
         account.setRegisteredAt(LocalDateTime.now());
         account.setStatus(AccountStatus.NORMAL.getStatus());
         try {
-            accountRepository.save(account);
+            accountRepository.insert(account);
             userSocialService.init(account.getId());
             return account;
         } catch (Exception e) {

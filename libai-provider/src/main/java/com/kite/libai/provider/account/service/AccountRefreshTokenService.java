@@ -28,7 +28,7 @@ public class AccountRefreshTokenService {
         accountRefreshToken.setExpiresTime(LocalDateTime.now().plusDays(90));
         accountRefreshToken.setLoginTime(LocalDateTime.now());
         accountRefreshToken.setUpdateTime(LocalDateTime.now());
-        accountRefreshTokenRepository.save(accountRefreshToken);
+        accountRefreshTokenRepository.insert(accountRefreshToken);
         return accountRefreshToken;
     }
 

@@ -79,7 +79,7 @@ public class ChatPresenter {
         Chat chat;
         if (chatDetail == null) {
             chat = new Chat();
-            chatService.save(chat);
+            chatService.insert(chat);
             chatDetail = new ChatDetail();
             chatDetail.setAccountId(accountId);
             chatDetail.setFriendId(friendId);
@@ -96,8 +96,8 @@ public class ChatPresenter {
                 friendChatDetail.setRelation(RelationType.STRANGER.getType());
             }
             friendChatDetail.setStatus(ChatDetailStatus.VISIBLE.getStatus());
-            chatDetailService.save(chatDetail);
-            chatDetailService.save(friendChatDetail);
+            chatDetailService.insert(chatDetail);
+            chatDetailService.insert(friendChatDetail);
         } else {
             if (ChatDetailStatus.INVISIBLE.getStatus().equals(chatDetail.getStatus())) {
                 chatDetail.setStatus(ChatDetailStatus.VISIBLE.getStatus());
@@ -172,7 +172,7 @@ public class ChatPresenter {
         Message message = BeanUtils.copy(messageRequest, Message.class);
         message.setChatId(chatId);
         message.setAccountId(accountId);
-        messageService.save(message);
+        messageService.insert(message);
         // 更新会话信息
         chat.setLastMsgId(message.getId());
         chat.setLastContent(message.getContent());

@@ -33,6 +33,6 @@ public class BrowseListener implements BaseListener {
         browse.setEntityType(browseEvent.getEntityType());
         browse.setEntityId(browseEvent.getEntityId());
         browse.setEntryId(browseEvent.getEntryId());
-        browseService.save(browse);
+        browseService.insert(browse);
     }
 }

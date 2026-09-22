@@ -78,6 +78,6 @@ public class UserSecurityService {
         userLoginLog.setUserAgent(RequestContextUtils.getUserAgent());
         userLoginLog.setLoginTime(LocalDateTime.now());
         userLoginLog.setCreateTime(LocalDateTime.now());
-        userLoginLogRepository.save(userLoginLog);
+        userLoginLogRepository.insert(userLoginLog);
     }
 }

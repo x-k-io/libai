@@ -31,7 +31,7 @@ public class UserRefreshTokenService {
         userRefreshToken.setExpiresTime(LocalDateTime.now().plusHours(3));
         userRefreshToken.setLoginTime(LocalDateTime.now());
         userRefreshToken.setUpdateTime(LocalDateTime.now());
-        userRefreshTokenRepository.save(userRefreshToken);
+        userRefreshTokenRepository.insert(userRefreshToken);
         return userRefreshToken;
     }
 

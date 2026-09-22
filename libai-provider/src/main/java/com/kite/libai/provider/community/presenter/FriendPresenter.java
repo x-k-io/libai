@@ -65,7 +65,7 @@ public class FriendPresenter {
             blacklistService.deleteById(blacklist.getId());
         }
         // 关注
-        friendService.save(meFriend);
+        friendService.insert(meFriend);
         // 发送关注事件
         followerEventProducer.sendFollowerEvent(accountId, friendId);
     }

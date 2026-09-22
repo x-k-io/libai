@@ -65,7 +65,7 @@ public class UserSocialService extends BaseService<UserSocialRepository, UserSoc
     public void init(Long accountId) {
         UserSocial userSocial = new UserSocial();
         userSocial.setAccountId(accountId);
-        this.save(userSocial);
+        this.insert(userSocial);
     }
 
     /**

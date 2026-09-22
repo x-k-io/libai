@@ -80,7 +80,7 @@ public class NoticeRemindService extends BaseService<NoticeRemindRepository, Not
             noticeRemind.setForwards(0);
             noticeRemind.setReplies(0);
             noticeRemind.setFollows(0);
-            save(noticeRemind);
+            insert(noticeRemind);
             return;
         }
         switch (noticeType) {

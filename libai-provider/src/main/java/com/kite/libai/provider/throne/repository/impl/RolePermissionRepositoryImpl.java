@@ -5,6 +5,7 @@ import com.kite.libai.core.repository.MybatisBaseRepository;
 import com.kite.libai.provider.throne.mapper.RolePermissionMapper;
 import com.kite.libai.provider.throne.model.entity.RolePermission;
 import com.kite.libai.provider.throne.repository.RolePermissionRepository;
+import org.apache.commons.compress.utils.Lists;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

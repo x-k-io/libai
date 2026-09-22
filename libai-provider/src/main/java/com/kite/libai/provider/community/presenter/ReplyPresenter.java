@@ -69,7 +69,7 @@ public class ReplyPresenter {
         boolean authored = reply.getAccountId().equals(entry.getAuthorId());
         reply.setAuthored(authored);
         // 创建回复
-        replyService.save(reply);
+        replyService.insert(reply);
         // 发送回复创建事件
         replyEventProducer.sendCreateReplyEvent(reply);
         return replyAssemble.toResponse(reply);

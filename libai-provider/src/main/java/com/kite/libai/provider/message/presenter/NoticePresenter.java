@@ -51,7 +51,7 @@ public class NoticePresenter {
     @Async
     public void create(NoticeRequest noticeRequest) {
         Notice notice = BeanUtils.copy(noticeRequest, Notice.class);
-        noticeService.save(notice);
+        noticeService.insert(notice);
         noticeRemindService.add(noticeRequest.getReceiveId(), noticeRequest.getType());
     }
 

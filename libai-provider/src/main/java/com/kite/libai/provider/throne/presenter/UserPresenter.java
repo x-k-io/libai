@@ -167,7 +167,7 @@ public class UserPresenter {
             accountRole.setCreateTime(LocalDateTime.now());
             return accountRole;
         }).collect(Collectors.toList());
-        return userRoleService.saveBatch(newUserRoles);
+        return userRoleService.insert(newUserRoles);
     }
 
     public PageResult<UserVo> pageGet(String name, Integer pageNum, Integer pageSize) {

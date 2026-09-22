@@ -47,7 +47,7 @@ public class FavoritePresenter {
         favorite.setEntityType(entry.getEntityType());
         favorite.setEntityId(entry.getEntityId());
         favorite.setEntryId(entry.getId());
-        boolean temp = favoriteService.save(favorite);
+        boolean temp = favoriteService.insert(favorite);
         // 发送收藏事件
         favoriteEventProducer.sendFavoriteEvent(favorite);
         return temp;

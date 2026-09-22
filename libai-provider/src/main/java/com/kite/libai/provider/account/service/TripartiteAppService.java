@@ -31,7 +31,7 @@ public class TripartiteAppService {
 
     public boolean create(TripartiteAppRequest request) {
         TripartiteApp tripartiteApp = tripartiteAppAssemble.toEntity(request);
-        return tripartiteAppRepository.save(tripartiteApp);
+        return tripartiteAppRepository.insert(tripartiteApp);
     }
 
     public boolean updateById(Long id, TripartiteAppRequest request) {
