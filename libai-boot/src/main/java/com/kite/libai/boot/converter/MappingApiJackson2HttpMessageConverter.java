@@ -1,4 +1,4 @@
-package com.kite.libai.boot.jackson;
+package com.kite.libai.boot.converter;
 
 import com.kite.libai.common.jackson.KiteObjectMapperFactory;
 import org.springframework.http.MediaType;

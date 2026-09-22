@@ -1,6 +1,6 @@
 package com.kite.libai.boot.configuration;
 
-import com.kite.libai.boot.jackson.MappingApiJackson2HttpMessageConverter;
+import com.kite.libai.boot.converter.MappingApiJackson2HttpMessageConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

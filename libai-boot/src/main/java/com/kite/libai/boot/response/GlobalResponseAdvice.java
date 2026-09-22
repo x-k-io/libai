@@ -11,25 +11,16 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 @AllArgsConstructor
 @RestControllerAdvice
 public class GlobalResponseAdvice implements ResponseBodyAdvice<Object> {
 
-  private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper;
 
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if (attributes != null) {
-            String uri = attributes.getRequest().getRequestURI();
-            if (uri.startsWith("/actuator")) {
-                return false;
-            }
-        }
         return !returnType.hasMethodAnnotation(IgnoreResponseAdvice.class);
     }
 
@@ -37,8 +28,16 @@ public class GlobalResponseAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
                                   Class<? extends HttpMessageConverter<?>> selectedConverterType,
                                   ServerHttpRequest request, ServerHttpResponse response) {
-        if (body instanceof Result) {
+        String path = request.getURI().getPath();
+        if (path.startsWith("/actuator")) {
             return body;
+        }
+        if (body instanceof Result<?>) {
+            return body;
+        }
+        // PageResult 分页对象，组装Result
+        if (body instanceof PageResult<?> pageResult) {
+            return Result.success(pageResult.getRecords(), pageResult.getPageCount(), pageResult.getTotal());
         }
         if (body instanceof String) {
             try {
@@ -46,9 +45,6 @@ public class GlobalResponseAdvice implements ResponseBodyAdvice<Object> {
             } catch (Exception e) {
                 return Result.fail("返回值封装异常");
             }
-        }
-        if (body instanceof PageResult<?> pageResult) {
-            return Result.success(pageResult.getRecords(), pageResult.getPageCount(), pageResult.getTotal());
         }
         return Result.success(body);
     }

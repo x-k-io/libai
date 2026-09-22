@@ -1,4 +1,4 @@
-package com.kite.libai.boot.jackson;
+package com.kite.libai.boot.converter;
 
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonGenerator;
