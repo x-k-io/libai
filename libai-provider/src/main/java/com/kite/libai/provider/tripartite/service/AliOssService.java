@@ -59,8 +59,7 @@ public class AliOssService {
         try {
             data = PictureUtils.generateImage(name);
         } catch (IOException e) {
-            log.error("生成头像失败");
-            e.printStackTrace();
+            log.error("生成头像失败", e);
         }
         String key = DigestUtils.md5Hex(data) + ".png";
         return upload(data, key);

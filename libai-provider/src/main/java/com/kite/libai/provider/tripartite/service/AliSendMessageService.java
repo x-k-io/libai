@@ -62,7 +62,7 @@ public class AliSendMessageService {
         try {
             return new com.aliyun.dysmsapi20170525.Client(config);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("创建客户端失败", e);
             return null;
         }
     }
