@@ -53,7 +53,7 @@ public class PermissionPresenter {
             throw new ServiceException("权限不存在");
         }
         permission.setName(request.getName());
-        permission.setSortNum(request.getSortNum());
+        permission.setSortOrder(request.getSortOrder());
         permission.setUpdateTime(LocalDateTime.now());
         return permissionService.updateById(permission);
     }
