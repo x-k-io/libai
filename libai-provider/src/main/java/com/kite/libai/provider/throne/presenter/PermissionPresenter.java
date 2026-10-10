@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.kite.libai.common.result.PageResult;
 import com.kite.libai.common.utils.BeanUtils;
+import com.kite.libai.provider.throne.constant.ThroneConstants;
 import com.kite.libai.provider.throne.model.entity.Permission;
 import com.kite.libai.provider.throne.model.request.CreatePermissionRequest;
 import com.kite.libai.provider.throne.model.request.UpdatePermissionRequest;
@@ -12,6 +13,7 @@ import com.kite.libai.provider.throne.model.vo.PermissionVo;
 import com.kite.libai.provider.throne.service.PermissionService;
 import com.kite.libai.provider.throne.service.RolePermissionService;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
 import com.kite.libai.common.exception.ServiceException;
@@ -29,15 +31,20 @@ public class PermissionPresenter {
     private final RolePermissionService rolePermissionService;
 
     public boolean create(CreatePermissionRequest request) {
+        if (!ThroneConstants.TOP_PERMISSION_ID.equals(request.getParentId())) {
+            Permission parent = permissionService.getById(request.getParentId());
+            if (parent == null) {
+                throw new ServiceException("上级权限不存在");
+            }
+        }
         Permission check = permissionService.getPermissionByPermission(request.getPermission());
         if (check != null) {
-            throw new ServiceException( "权限标识已存在");
+            throw new ServiceException("权限标识已存在");
         }
         Permission permission = BeanUtils.copy(request, Permission.class);
         permission.setUpdateTime(LocalDateTime.now());
         permission.setCreateTime(LocalDateTime.now());
         return permissionService.insert(permission);
-
     }
 
     public boolean updateById(UpdatePermissionRequest request) {
@@ -46,7 +53,7 @@ public class PermissionPresenter {
             throw new ServiceException("权限不存在");
         }
         permission.setName(request.getName());
-        permission.setOrders(request.getOrders());
+        permission.setSortNum(request.getSortNum());
         permission.setUpdateTime(LocalDateTime.now());
         return permissionService.updateById(permission);
     }
@@ -55,6 +62,10 @@ public class PermissionPresenter {
         Permission permission = permissionService.getById(id);
         if (permission == null) {
             throw new ServiceException("权限不存在");
+        }
+        List<Permission> permissions = permissionService.getByParentId(id);
+        if (CollectionUtils.isNotEmpty(permissions)) {
+            throw new ServiceException("存在子权限，不允许删除");
         }
         rolePermissionService.deleteByPermissionId(id);
         return permissionService.deleteById(id);

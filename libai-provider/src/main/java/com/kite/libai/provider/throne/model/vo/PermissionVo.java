@@ -15,7 +15,7 @@ public class PermissionVo {
 
     private String permission;
 
-    private Integer orders;
+    private Integer sortOrder;
 
     private LocalDateTime createTime;
 

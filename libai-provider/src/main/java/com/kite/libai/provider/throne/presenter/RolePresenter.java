@@ -43,7 +43,7 @@ public class RolePresenter {
     public boolean create(CreateRoleRequest request) {
         Role check = roleService.getRoleByCode(request.getCode());
         if (check != null) {
-            throw new ServiceException( "角色编码已存在");
+            throw new ServiceException("角色编码已存在");
         }
         Role role = new Role();
         role.setCode(request.getCode());
@@ -57,7 +57,7 @@ public class RolePresenter {
     public boolean updateById(UpdateRoleRequest request) {
         Role role = roleService.getById(request.getId());
         if (role == null) {
-            throw new ServiceException("未查询到角色");
+            throw new ServiceException("角色不存在");
         }
         role.setName(request.getName());
         role.setDescription(request.getDescription());
@@ -68,7 +68,7 @@ public class RolePresenter {
     public boolean deleteById(Long id) {
         Role role = roleService.getById(id);
         if (role == null) {
-            return Boolean.TRUE;
+            throw new ServiceException("角色不存在");
         }
         // 删除账号和角色关系
         userRoleService.deleteByRoleId(role.getId());
@@ -81,7 +81,7 @@ public class RolePresenter {
     public RoleVo getById(Long id) {
         Role role = roleService.getById(id);
         if (role == null) {
-            throw new ServiceException("未查询到角色");
+            throw new ServiceException("角色不存在");
         }
         return BeanUtils.copy(role, RoleVo.class);
     }
@@ -101,7 +101,7 @@ public class RolePresenter {
         Long roleId = request.getRoleId();
         List<Long> permissionIds = request.getPermissionIds();
         if (roleId == null) {
-            throw new ServiceException(SystemCode.PARAM_MISS, "roleId 不能为空");
+            throw new ServiceException("roleId 不能为空");
         }
         if (CollectionUtils.isEmpty(permissionIds)) {
             rolePermissionService.deleteByRoleId(roleId);

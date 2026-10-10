@@ -24,6 +24,10 @@ public class PermissionService extends BaseService<PermissionRepository, Permiss
         return this.repository.getByPermission(permission);
     }
 
+    public List<Permission> getByParentId(Long parentId) {
+        return this.repository.getByParentId(parentId);
+    }
+
     public List<Permission> getPermissionList() {
         return this.repository.batchGet();
     }

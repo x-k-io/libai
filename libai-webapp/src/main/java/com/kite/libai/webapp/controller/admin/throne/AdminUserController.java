@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -31,13 +32,13 @@ public class AdminUserController {
 
     @KitePermission
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public boolean create(@RequestBody CreateUserRequest request) {
+    public boolean create(@Valid @RequestBody CreateUserRequest request) {
         return userPresenter.create(request);
     }
 
     @KitePermission
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public boolean updateById(@RequestBody UpdateUserRequest request) {
+    public boolean updateById(@Valid @RequestBody UpdateUserRequest request) {
         return userPresenter.updateById(request);
     }
 
@@ -48,14 +49,14 @@ public class AdminUserController {
 
     @KitePermission
     @RequestMapping(value = "/updatePassword", method = RequestMethod.PUT)
-    public boolean updatePassword(@RequestBody UpdatePasswordRequest request) {
+    public boolean updatePassword(@Valid @RequestBody UpdatePasswordRequest request) {
         return userPresenter.updatePassword(request);
     }
 
 
     @KitePermission
     @RequestMapping(value = "/updateStatus", method = RequestMethod.PUT)
-    public boolean updateStatus(@RequestBody UpdateUserStatusRequest request) {
+    public boolean updateStatus(@Valid @RequestBody UpdateUserStatusRequest request) {
         return userPresenter.updateStatus(request);
     }
 

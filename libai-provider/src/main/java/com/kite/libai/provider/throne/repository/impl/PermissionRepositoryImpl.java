@@ -10,6 +10,8 @@ import com.kite.libai.provider.throne.model.entity.Permission;
 import com.kite.libai.provider.throne.repository.PermissionRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class PermissionRepositoryImpl extends MybatisBaseRepository<PermissionMapper, Permission> implements PermissionRepository {
     @Override
@@ -26,5 +28,12 @@ public class PermissionRepositoryImpl extends MybatisBaseRepository<PermissionMa
             queryWrapper.like(Permission::getName, name);
         }
         return this.pageGet(queryWrapper, pageNum, pageSize);
+    }
+
+    @Override
+    public List<Permission> getByParentId(Long parentId) {
+        LambdaQueryWrapper<Permission> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Permission::getParentId, parentId);
+        return this.baseMapper.selectList(queryWrapper);
     }
 }

@@ -1,10 +1,16 @@
 package com.kite.libai.provider.throne.presenter;
 
+import com.kite.libai.common.context.RequestContextUtils;
 import com.kite.libai.common.enums.UserType;
 import com.kite.libai.common.model.KiteAccount;
 import com.kite.libai.common.result.PageResult;
 import com.kite.libai.common.utils.BeanUtils;
 import com.kite.libai.common.utils.DesensitizationUtils;
+import com.kite.libai.common.utils.DigestUtils;
+import com.kite.libai.common.utils.PasswordUtil;
+import com.kite.libai.common.utils.RandomType;
+import com.kite.libai.common.utils.RandomUtils;
+import com.kite.libai.provider.account.enums.AccountExceptionCode;
 import com.kite.libai.provider.account.enums.AccountStatus;
 import com.kite.libai.provider.throne.service.UserRefreshTokenService;
 import com.kite.libai.provider.throne.model.request.UpdatePasswordRequest;
@@ -24,6 +30,7 @@ import com.kite.libai.provider.throne.service.UserRoleService;
 import com.kite.libai.provider.throne.service.RoleService;
 import com.kite.libai.provider.throne.service.UserService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import com.kite.libai.common.exception.ServiceException;
@@ -69,22 +76,61 @@ public class UserPresenter {
     }
 
     public boolean create(CreateUserRequest request) {
-        return userService.create(request);
+        User checkUser = userService.getUserByUsername(request.getUsername());
+        if (checkUser != null) {
+            throw new ServiceException(AccountExceptionCode.KITE_USER_EXIT);
+        }
+        User user = BeanUtils.copy(request, User.class);
+        String newPassword = RandomUtils.random(16, RandomType.ALL);
+        log.info("create newPassword: {}", newPassword);
+        user.setPassword(PasswordUtil.encode(DigestUtils.md5Hex("newPassword")));
+        user.setStatus(AccountStatus.NORMAL.getStatus());
+        return userService.insert(user);
     }
 
     public boolean updateById(UpdateUserRequest request) {
-        return userService.update(request);
+        User user = userService.getById(request.getId());
+        if (user == null) {
+            throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
+        }
+        if (StringUtils.isNotBlank(request.getMobile())) {
+            user.setMobile(request.getMobile());
+        }
+        if (StringUtils.isNotBlank(request.getEmail())) {
+            user.setEmail(request.getEmail());
+        }
+        if (StringUtils.isNotBlank(request.getAvatar())) {
+            user.setAvatar(request.getAvatar());
+        }
+        user.setUpdateTime(LocalDateTime.now());
+        return userService.updateById(user);
     }
 
     public boolean resetPassword(Long id) {
-        return userService.resetPassword(id);
+        User user = userService.getById(id);
+        if (user == null) {
+            throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
+        }
+        String newPassword = RandomUtils.random(16, RandomType.ALL);
+        log.info("resetPassword newPassword: {}", newPassword);
+        String passwordMD5 = DigestUtils.md5Hex(newPassword);
+        user.setPassword(PasswordUtil.encode(passwordMD5));
+        user.setUpdateTime(LocalDateTime.now());
+        return userService.updateById(user);
     }
-
 
     public boolean updatePassword(UpdatePasswordRequest request) {
-        return userService.updatePassword(request);
+        User user = userService.getById(RequestContextUtils.getAccountId());
+        if (null == user) {
+            throw new ServiceException(AccountExceptionCode.KITE_USER_NO_EXIT);
+        }
+        if (!PasswordUtil.matches(request.getOldPassword(), user.getPassword())) {
+            throw new ServiceException(AccountExceptionCode.KITE_OLD_PASSWORD_ERROR);
+        }
+        user.setPassword(PasswordUtil.encode(request.getNewPassword()));
+        user.setUpdateTime(LocalDateTime.now());
+        return userService.updateById(user);
     }
-
 
     public boolean updateStatus(UpdateUserStatusRequest request) {
         Long userId = request.getUserId();
@@ -151,7 +197,7 @@ public class UserPresenter {
         // 验证角色是否存在
         List<Role> roles = roleService.batchGetByIds(roleIds);
         if (roles.size() != roleIds.size()) {
-            throw new ServiceException( "添加的角色不存在");
+            throw new ServiceException("添加的角色不存在");
         }
         List<UserRole> userRoles = userRoleService.getByUserId(userId);
         List<Long> existRoleIds = userRoles.stream().map(UserRole::getRoleId).collect(Collectors.toList());

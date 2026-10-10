@@ -17,7 +17,7 @@ public class Permission implements Serializable {
 
     private String permission;
 
-    private Integer orders;
+    private Integer sortOrder;
 
     private LocalDateTime createTime;
 

@@ -12,6 +12,6 @@ public class UpdatePermissionRequest implements Serializable {
     @NotBlank
     private String name;
 
-    private Integer orders;
+    private Integer sortOrder;
 
 }

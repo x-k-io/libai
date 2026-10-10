@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -27,13 +28,13 @@ public class AdminPermissionController {
 
     @KitePermission
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public boolean create(@RequestBody CreatePermissionRequest request) {
+    public boolean create(@Valid @RequestBody CreatePermissionRequest request) {
         return permissionPresenter.create(request);
     }
 
     @KitePermission
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public boolean updateById(@RequestBody UpdatePermissionRequest request) {
+    public boolean updateById(@Valid @RequestBody UpdatePermissionRequest request) {
         return permissionPresenter.updateById(request);
     }
 

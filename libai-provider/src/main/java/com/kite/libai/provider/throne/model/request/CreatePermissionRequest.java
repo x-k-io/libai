@@ -18,5 +18,5 @@ public class CreatePermissionRequest implements Serializable {
 
     private String permission;
 
-    private Integer orders;
+    private Integer sortOrder;
 }

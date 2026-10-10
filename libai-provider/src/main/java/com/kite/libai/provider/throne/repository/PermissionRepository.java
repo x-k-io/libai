@@ -4,8 +4,12 @@ import com.kite.libai.core.repository.BaseRepository;
 import com.kite.libai.common.result.PageResult;
 import com.kite.libai.provider.throne.model.entity.Permission;
 
+import java.util.List;
+
 public interface PermissionRepository extends BaseRepository<Permission> {
     Permission getByPermission(String permission);
 
     PageResult<Permission> pageGet(String name, Integer pageNum, Integer pageSize);
+
+    List<Permission> getByParentId(Long parentId);
 }
