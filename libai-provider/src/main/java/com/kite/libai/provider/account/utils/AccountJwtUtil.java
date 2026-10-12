@@ -19,7 +19,7 @@ public class AccountJwtUtil {
 
     public static final String SECRET_STR = "abc1234567890abc1234567890abc1234567890abc1234567890";
 
-    public static final Long ACCESS_TOKEN_EXPIRE = 5 * 60 * 1000L;
+    public static final Long ACCESS_TOKEN_EXPIRE = 100 * 60 * 1000L;
 
     private static final SecretKey secretKey;
 

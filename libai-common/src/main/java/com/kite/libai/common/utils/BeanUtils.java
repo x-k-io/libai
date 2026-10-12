@@ -10,11 +10,14 @@ public class BeanUtils {
     private static final ModelMapper modelMapper = new ModelMapper();
 
     public static <S, D> D copy(S source, Class<D> destinationClass) {
+        if (source == null) {
+            return null;
+        }
         return modelMapper.map(source, destinationClass);
     }
 
     public static <S, D> List<D> copy(Iterable<S> sourceList, Class<D> destinationClass) {
-        if (sourceList == null) {
+        if (sourceList == null || !sourceList.iterator().hasNext()) {
             return new ArrayList<>();
         }
         List<D> result = new ArrayList<>();

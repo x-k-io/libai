@@ -32,18 +32,24 @@ public class KiteApiAuthInterceptor implements AsyncHandlerInterceptor {
         }
         RequestContext requestContext = buildRequestContext(request);
         RequestContextHolder.set(requestContext);
+        // 查询用户信息 设置 requestContext
+        KiteAccount kiteAccount = null;
+        try {
+            kiteAccount = kiteSecurityService.getKiteAccount();
+        }catch (Exception e){
+        }
+        if(kiteAccount != null){
+            requestContext.setAccount(kiteAccount);
+            requestContext.setAccountId(kiteAccount.getId());
+        }
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         KitePermission kitePermission = handlerMethod.getMethod().getAnnotation(KitePermission.class);
         if (kitePermission == null) {
             return true;
         }
-        // 查询用户信息 判断登录是否有效
-        KiteAccount kiteAccount = kiteSecurityService.getKiteAccount();
         if (kiteAccount == null) {
             throw new AuthenticationException(KiteSecurityCode.TOKEN_IS_INVALID);
         }
-        requestContext.setAccount(kiteAccount);
-        requestContext.setAccountId(kiteAccount.getId());
         return true;
     }
 

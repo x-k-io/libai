@@ -22,7 +22,7 @@ public class Topic implements Serializable {
 
     private Long orders;
 
-    private Integer reads;
+    private Integer viewCount;
 
     private Integer mentions;
 

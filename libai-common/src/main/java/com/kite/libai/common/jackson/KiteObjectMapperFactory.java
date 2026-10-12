@@ -48,7 +48,6 @@ public class KiteObjectMapperFactory {
 
     private static class JacksonObjectMapper extends ObjectMapper {
         private static final KiteJavaTimeModule KITE_JAVA_TIME_MODULE = new KiteJavaTimeModule();
-        private static final KiteLongToStringModule KITE_LONG_TO_STRING_MODULE = new KiteLongToStringModule();
 
         private static final Locale CHINA = Locale.CHINA;
 
@@ -59,11 +58,9 @@ public class KiteObjectMapperFactory {
             super.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             // 空Bean不抛异常
             super.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+            super.findAndRegisterModules();
             // Java8时间模块
             registerModule(KITE_JAVA_TIME_MODULE);
-            // Long 转 String
-            registerModule(KITE_LONG_TO_STRING_MODULE);
-            super.findAndRegisterModules();
         }
 
         private static JsonFactory jsonFactory() {

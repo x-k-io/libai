@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("auth_user_refresh_token")
+@TableName("auth_account_refresh_token")
 public class AccountRefreshToken implements Serializable {
     private Long id;
     private Long accountId;
